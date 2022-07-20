@@ -1,6 +1,7 @@
+@import "_variable.scss";
 @import "~bootstrap/scss/bootstrap";
 //@import "~bootstrap-icons/font/bootstrap-icons";
 
-body {
-    background-color: lightgray;
-}
+@import "_global.scss";
+@import "_navbar.scss";
+@import "_footer.scss";
