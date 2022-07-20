@@ -26,6 +26,18 @@
                     <li class="nav-item">
                         <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Contact</a>
+                    </li>
+                    <li class="mt-auto"></li>
+                    {#                    {% if is_granted("ROLE_ADMIN") %}#}
+                    <li class="nav-item ">
+                        <a class="nav-link active fs-5 text-light text-center link-navbar" href="{{ path('admin') }}">
+                            <i class="fas fa-gauge-high fa-fw"></i>
+                            Tableau de bord admin
+                        </a>
+                    </li>
+                    {#                    {% endif %}#}
                 </ul>
             </div>
         </div>
