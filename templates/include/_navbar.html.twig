@@ -1,0 +1,33 @@
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top shadow-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img src="{{ asset('build/images/profil.jpg') }}" alt="" class="img-profil"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+            <span class="navbar-toggler-icon text-light"></span>
+        </button>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body bg-dark">
+                <ul class="navbar-nav justify-content-center flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link active fs-4 pe-lg-5 text-center " aria-current="page" href="#">Acceuil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Profil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Compétence</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fs-4 pe-lg-5 text-center" href="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
