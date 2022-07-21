@@ -1,0 +1,34 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Techno{% endblock %}
+
+{% block body %}
+    <h1>Techno</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ techno.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ techno.name }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ techno.image }}</td>
+            </tr>
+            <tr>
+                <th>Progress</th>
+                <td>{{ techno.progress }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('techno_index') }}">Retour à la liste</a>
+
+    <a href="{{ path('techno_edit', {'id': techno.id}) }}">Modifier</a>
+
+    {{ include('admin/techno/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Index des technos{% endblock %}
+
+{% block body %}
+    <h1>Index des technos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th>Progress</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for techno in technos %}
+            <tr>
+                <td>{{ techno.id }}</td>
+                <td>{{ techno.name }}</td>
+                <td>{{ techno.image }}</td>
+                <td>{{ techno.progress }}</td>
+                <td>
+                    <a href="{{ path('techno_show', {'id': techno.id}) }}">Afficher</a>
+                    <a href="{{ path('techno_edit', {'id': techno.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">aucune techno trouvée </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('techno_new') }}">Créer</a>
+{% endblock %}
