@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProjetRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Validator\Constraints as Assert;
 use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -23,10 +24,14 @@ class Projet
     #[ORM\Column(length: 100)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 100)]
+    #[ORM\Column(length: 100, nullable: true)]
     private ?string $image = null;
 
     #[Vich\UploadableField(mapping: 'images_projet', fileNameProperty: 'image')]
+    #[Assert\File(
+        maxSize: '1M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
     private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -41,7 +46,7 @@ class Projet
     #[ORM\Column(length: 255)]
     private ?string $slug = null;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime', nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
     #[ORM\ManyToMany(targetEntity: Techno::class, inversedBy: 'projets')]
@@ -74,7 +79,7 @@ class Projet
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 
@@ -153,7 +158,7 @@ class Projet
         return $this;
     }
 
-    public function setImageFile(File $image = null): void
+    public function setImageFile(?File $image = null): void
     {
         $this->imageFile = $image;
         if ($image) {

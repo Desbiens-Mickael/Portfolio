@@ -19,27 +19,20 @@
                 Projet
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a class="dropdown-item" href="{{ path('projet_index') }}">Afficher toutes les projet</a></li>
+                <li><a class="dropdown-item" href="{{ path('projet_index') }}">Afficher tout les projet</a></li>
                 <li><a class="dropdown-item" href="{{ path('projet_new') }}">Créer un nouveau projet</a></li>
             </ul>
         </li>
-        <li class="nav-item nav-pills">
-            <a href="" class="nav-link text-light ps-5 mt-4
-                {{ app.request.attributes.get('_route') starts with 'manage' ? 'active' : '' }}"
-                    {{ app.request.attributes.get('_route') starts with 'manage' ? "aria-current='page'" : '' }}>
-                Gérer les utilisateur
-            </a>
-        </li>
-        <li class="nav-item nav-pills">
+        <li class="nav-item dropdown nav-pills">
             <a class="nav-link dropdown-toggle text-light ps-5 mt-4
-                {{ app.request.attributes.get('_route') starts with 'classe' ? 'active' : '' }}"
-                    {{ app.request.attributes.get('_route') starts with 'classe' ? "aria-current='page'" : '' }}
+                {{ app.request.attributes.get('_route') starts with 'techno' ? 'active' : '' }}"
+                    {{ app.request.attributes.get('_route') starts with 'techno' ? "aria-current='page'" : '' }}
                href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Classe
+                Techno
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a class="dropdown-item" href="">Afficher toutes les classes</a></li>
-                <li><a class="dropdown-item" href="">Créer une nouvelle classe</a></li>
+                <li><a class="dropdown-item" href="{{ path('techno_index') }}">Afficher toutes les techno</a></li>
+                <li><a class="dropdown-item" href="{{ path('techno_new') }}">Créer une nouvelle techno</a></li>
             </ul>
         </li>
         <li>
