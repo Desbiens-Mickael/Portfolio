@@ -21,7 +21,7 @@
             </tr>
             <tr>
                 <th>Descriptif</th>
-                <td>{{ projet.descriptif }}</td>
+                <td>{{ projet.descriptif|raw }}</td>
             </tr>
             <tr>
                 <th>Link</th>
@@ -34,6 +34,14 @@
             <tr>
                 <th>Slug</th>
                 <td>{{ projet.slug }}</td>
+            </tr>
+            <tr>
+                <th>Techno</th>
+                <td>
+                    {% for techno in projet.techno %}
+                        {{ techno.name ~ ' / ' }}
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>

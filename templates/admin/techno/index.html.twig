@@ -3,20 +3,22 @@
 {% block title %}Index des technos{% endblock %}
 
 {% block body %}
-    <h1>Index des technos</h1>
+    <h1 class="text-center">Index des technos</h1>
+
+    {% include'admin/include/_search.html.twig' %}
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Id', 'id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Nom', 'name') }}</th>
                 <th>Image</th>
-                <th>Progress</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Progression', 'progress') }}</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for techno in technos %}
+        {% for techno in pagination %}
             <tr>
                 <td>{{ techno.id }}</td>
                 <td>{{ techno.name }}</td>
@@ -34,6 +36,10 @@
         {% endfor %}
         </tbody>
     </table>
+
+    <div class="navigation ">
+        {{ knp_pagination_render(pagination) }}
+    </div>
 
     <a href="{{ path('techno_new') }}">Créer</a>
 {% endblock %}

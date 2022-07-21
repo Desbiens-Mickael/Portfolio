@@ -3,8 +3,10 @@
 namespace App\Controller\admin;
 
 use App\Entity\Techno;
+use App\Form\KeywordSearchType;
 use App\Form\TechnoType;
 use App\Repository\TechnoRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +15,35 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/techno')]
 class AdminTechnoController extends AbstractController
 {
-    #[Route('/', name: 'techno_index', methods: ['GET'])]
-    public function index(TechnoRepository $technoRepository): Response
-    {
-        return $this->render('admin/techno/index.html.twig', [
-            'technos' => $technoRepository->findAll(),
+    #[Route('/', name: 'techno_index', methods: ['GET','POST'])]
+    public function index(
+        TechnoRepository $technoRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response{
+
+        $form = $this->createForm(KeywordSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            if (!empty($search)) {
+                $query = $technoRepository->findLikeName($search);
+            } else {
+                $query = $technoRepository->findBy([], ['id' => 'DESC']);
+            }
+        } else {
+            $query = $technoRepository->findBy([], ['id' => 'DESC']);
+        }
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+        return $this->renderForm('admin/techno/index.html.twig', [
+            'pagination' => $pagination,
+            'form' => $form
         ]);
     }
 
@@ -30,6 +56,8 @@ class AdminTechnoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $technoRepository->add($techno, true);
+
+            $this->addFlash('success', 'La nouvelle techno a bien été créée');
 
             return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);
         }
@@ -57,6 +85,8 @@ class AdminTechnoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $technoRepository->add($techno, true);
 
+            $this->addFlash('success', 'La techno a bien été modifiée');
+
             return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -71,6 +101,7 @@ class AdminTechnoController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$techno->getId(), $request->request->get('_token'))) {
             $technoRepository->remove($techno, true);
+            $this->addFlash('success', 'La techno a bien été supprimée');
         }
 
         return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);

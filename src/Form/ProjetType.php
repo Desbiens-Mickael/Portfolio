@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Projet;
 use App\Entity\Techno;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -24,7 +25,12 @@ class ProjetType extends AbstractType
                 'allow_delete'  => true,
                 'download_uri' => true,
             ])
-            ->add('descriptif', TextareaType::class)
+            ->add('descriptif', CKEditorType::class, [
+                'config_name' => 'medium',
+                'config' => [
+                    'language' => 'fr'
+                ],
+            ])
             ->add('link', TextType::class)
             ->add('date', DateType::class)
             ->add('slug', TextType::class)
