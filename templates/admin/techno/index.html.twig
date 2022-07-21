@@ -3,13 +3,13 @@
 {% block title %}Index des technos{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Index des technos</h1>
+    <h1 class="text-center mt-5">Index des technos</h1>
 
     {% include'admin/include/_search.html.twig' %}
 
-    <table class="table">
+    <table class="table table-hover mt-3">
         <thead>
-            <tr>
+            <tr class="table-dark text-center">
                 <th>{{ knp_pagination_sortable(pagination, 'Id', 'id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'Nom', 'name') }}</th>
                 <th>Image</th>
@@ -19,14 +19,18 @@
         </thead>
         <tbody>
         {% for techno in pagination %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ techno.id }}</td>
                 <td>{{ techno.name }}</td>
                 <td>{{ techno.image }}</td>
                 <td>{{ techno.progress }}</td>
                 <td>
-                    <a href="{{ path('techno_show', {'id': techno.id}) }}">Afficher</a>
-                    <a href="{{ path('techno_edit', {'id': techno.id}) }}">Modifier</a>
+                    <a class="btn btn-outline-primary" href="{{ path('techno_show', {'id': techno.id}) }}">
+                        <i class="bi bi-eye"></i>
+                        afficher</a>
+                    <a class="btn btn-outline-primary" href="{{ path('techno_edit', {'id': techno.id}) }}">
+                        <i class="bi bi-pencil"></i>
+                        éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -37,9 +41,11 @@
         </tbody>
     </table>
 
-    <div class="navigation ">
+    <a class="btn btn-outline-primary mt-2" href="{{ path('techno_new') }}">
+        <i class="bi bi-plus-circle"></i>
+        Créer</a>
+
+    <div class="navigation mb-5">
         {{ knp_pagination_render(pagination) }}
     </div>
-
-    <a href="{{ path('techno_new') }}">Créer</a>
 {% endblock %}

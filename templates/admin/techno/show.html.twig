@@ -26,9 +26,13 @@
         </tbody>
     </table>
 
-    <a href="{{ path('techno_index') }}">Retour à la liste</a>
+    <a class="btn btn-outline-primary" href="{{ path('techno_index') }}">
+        <i class="bi bi-backspace"></i>
+        retour à la liste</a>
 
-    <a href="{{ path('techno_edit', {'id': techno.id}) }}">Modifier</a>
+    <a class="btn btn-outline-primary" href="{{ path('techno_edit', {'id': techno.id}) }}">
+        <i class="bi bi-pencil"></i>
+        éditer</a>
 
     {{ include('admin/techno/_delete_form.html.twig') }}
 {% endblock %}

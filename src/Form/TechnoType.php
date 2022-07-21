@@ -23,15 +23,7 @@ class TechnoType extends AbstractType
                 'allow_delete'  => true,
                 'download_uri' => true,
             ])
-            ->add('progress', NumberType::class)
-            ->add('projets',  EntityType::class,[
-                'class' => Projet::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-                'by_reference' => false,
-            ])
-        ;
+            ->add('progress', NumberType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver): void
