@@ -6,8 +6,11 @@ use App\Repository\TechnoRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: TechnoRepository::class)]
+#[Vich\Uploadable]
 class Techno
 {
     #[ORM\Id]
@@ -20,6 +23,9 @@ class Techno
 
     #[ORM\Column(length: 100)]
     private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'images_techno', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
 
     #[ORM\Column]
     private ?int $progress = null;
@@ -98,5 +104,16 @@ class Techno
         }
 
         return $this;
+    }
+
+    public function setImageFile(File $image = null): Techno
+    {
+        $this->imageFile = $image;
+        return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 }
