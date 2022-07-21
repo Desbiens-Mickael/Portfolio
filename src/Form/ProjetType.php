@@ -33,7 +33,7 @@ class ProjetType extends AbstractType
             ])
             ->add('link', TextType::class)
             ->add('date', DateType::class)
-            ->add('slug', TextType::class)
+
             ->add('techno', EntityType::class,[
                 'class' => Techno::class,
                 'choice_label' => 'name',

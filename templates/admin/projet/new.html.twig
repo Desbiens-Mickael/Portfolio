@@ -7,5 +7,6 @@
 
     {{ include('admin/projet/_form.html.twig') }}
 
-    <a href="{{ path('projet_index') }}">Retour à la liste</a>
+    <a class="btn btn-outline-primary m-btn" href="{{ path('projet_index') }}">
+        <i class="bi bi-backspace"></i> retour à la liste</a>
 {% endblock %}

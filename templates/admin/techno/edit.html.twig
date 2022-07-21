@@ -3,11 +3,11 @@
 {% block title %}Modifier la techno{% endblock %}
 
 {% block body %}
-    <h1>Modifier la techno</h1>
+    <h1 class="text-center mt-3">Modifier la techno</h1>
 
-    {{ include('admin/techno/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/techno/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('techno_index') }}">Retour à la liste</a>
+    <a class="btn btn-outline-primary" href="{{ path('techno_index') }}"><i class="bi bi-backspace"></i> retour à la liste</a>
 
     {{ include('admin/techno/_delete_form.html.twig') }}
 {% endblock %}

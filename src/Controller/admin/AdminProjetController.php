@@ -11,6 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/projet')]
 class AdminProjetController extends AbstractController
@@ -48,13 +49,18 @@ class AdminProjetController extends AbstractController
     }
 
     #[Route('/new', name: 'projet_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, ProjetRepository $projetRepository): Response
+    public function new(
+        Request $request,
+        ProjetRepository $projetRepository,
+        SluggerInterface $slugger,
+    ): Response
     {
         $projet = new Projet();
         $form = $this->createForm(ProjetType::class, $projet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $projet->setSlug($slugger->slug(strtolower($form->getData()->getName())));
             $projetRepository->add($projet, true);
 
             $this->addFlash('success', 'Le nouveau projet a bien été créé');
@@ -77,12 +83,18 @@ class AdminProjetController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'projet_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Projet $projet, ProjetRepository $projetRepository): Response
+    public function edit(
+        Request $request,
+        Projet $projet,
+        ProjetRepository $projetRepository,
+        SluggerInterface $slugger,
+    ): Response
     {
         $form = $this->createForm(ProjetType::class, $projet);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $projet->setSlug($slugger->slug(strtolower($form->getData()->getName())));
             $projetRepository->add($projet, true);
 
             $this->addFlash('success', 'Le projet a bien été modifié');

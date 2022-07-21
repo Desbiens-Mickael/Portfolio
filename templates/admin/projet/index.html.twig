@@ -3,13 +3,13 @@
 {% block title %}Index des projets{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Index des projets</h1>
+    <h1 class="text-center mb-5">Index des projets</h1>
 
 {% include'admin/include/_search.html.twig' %}
 
-    <table class="table table-hover">
+    <table class="table table-hover mt-3">
         <thead>
-            <tr>
+            <tr class="table-dark text-center">
                 <th>{{ knp_pagination_sortable(pagination, 'Id', 'id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'Nom', 'name') }}</th>
 {#                <th>Image</th>#}
@@ -22,14 +22,18 @@
         </thead>
         <tbody>
         {% for projet in pagination %}
-            <tr>
+            <tr class="text-center">
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.name }}</td>
                 <td>{{ projet.date ? projet.date|date('Y-m-d') : '' }}</td>
                 <td>{{ projet.slug }}</td>
                 <td>
-                    <a href="{{ path('projet_show', {'id': projet.id}) }}">Afficher</a>
-                    <a href="{{ path('projet_edit', {'id': projet.id}) }}">Modifier</a>
+                    <a class="btn btn-outline-primary" href="{{ path('projet_show', {'id': projet.id}) }}">
+                        <i class="bi bi-eye"></i>
+                        afficher</a>
+                    <a class="btn btn-outline-primary" href="{{ path('projet_edit', {'id': projet.id}) }}">
+                        <i class="bi bi-pencil"></i>
+                        éditer</a>
                 </td>
             </tr>
         {% else %}
@@ -39,8 +43,11 @@
         {% endfor %}
         </tbody>
     </table>
-    <div class="navigation ">
+    <a class="btn btn-outline-primary mb-5" href="{{ path('projet_new') }}">
+        <i class="bi bi-plus-circle"></i>
+        Créer</a>
+    <div class="navigation mb-5">
         {{ knp_pagination_render(pagination) }}
     </div>
-    <a href="{{ path('projet_new') }}">Créer</a>
+
 {% endblock %}
