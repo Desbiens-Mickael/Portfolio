@@ -1,0 +1,15 @@
+vich_uploader:
+    db_driver: orm
+    metadata:
+        type: attribute
+
+    mappings:
+        images_projet:
+            uri_prefix: '%images_projet_dir%'
+                # Chemin vers le dossier de stockage
+            upload_destination: '%kernel.project_dir%/public/%images_projet_dir%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        images_techno:
+            uri_prefix: '%images_techno_dir%'
+            upload_destination: '%kernel.project_dir%/public/%images_techno_dir%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

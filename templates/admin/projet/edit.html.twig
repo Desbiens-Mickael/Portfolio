@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Modifier le projet{% endblock %}
+
+{% block body %}
+    <h1>Modifier le projet</h1>
+
+    {{ include('admin/projet/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('projet_index') }}">Retour à la liste</a>
+
+    {{ include('admin/projet/_delete_form.html.twig') }}
+{% endblock %}
