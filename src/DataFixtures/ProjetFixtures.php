@@ -18,7 +18,7 @@ class ProjetFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $faker = Factory::create();
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             $projet = new Projet();
             $projet->setName($faker->words(3, true));
             $projet->setImage('aaaaaaaa');

@@ -3,29 +3,28 @@
 {% block title %}Index des projets{% endblock %}
 
 {% block body %}
-    <h1>Index des projets</h1>
+    <h1 class="text-center">Index des projets</h1>
 
-    <table class="table">
+{% include'admin/include/_search.html.twig' %}
+
+    <table class="table table-hover">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Image</th>
-                <th>Descriptif</th>
-                <th>Link</th>
-                <th>Date</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Id', 'id') }}</th>
+                <th>{{ knp_pagination_sortable(pagination, 'Nom', 'name') }}</th>
+{#                <th>Image</th>#}
+{#                <th>Descriptif</th>#}
+{#                <th>Link</th>#}
+                <th>{{ knp_pagination_sortable(pagination, 'Date de création', 'date') }}</th>
                 <th>Slug</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
-        {% for projet in projets %}
+        {% for projet in pagination %}
             <tr>
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.name }}</td>
-                <td>{{ projet.image }}</td>
-                <td>{{ projet.descriptif }}</td>
-                <td>{{ projet.link }}</td>
                 <td>{{ projet.date ? projet.date|date('Y-m-d') : '' }}</td>
                 <td>{{ projet.slug }}</td>
                 <td>
@@ -40,6 +39,8 @@
         {% endfor %}
         </tbody>
     </table>
-
+    <div class="navigation ">
+        {{ knp_pagination_render(pagination) }}
+    </div>
     <a href="{{ path('projet_new') }}">Créer</a>
 {% endblock %}

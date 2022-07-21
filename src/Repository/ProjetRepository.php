@@ -39,6 +39,16 @@ class ProjetRepository extends ServiceEntityRepository
         }
     }
 
+
+    public function findLikeName(string $keyword): array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.name LIKE :keyword')
+            ->setParameter('keyword', '%' . $keyword . '%')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Projet[] Returns an array of Projet objects
 //     */

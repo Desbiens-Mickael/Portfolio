@@ -3,8 +3,10 @@
 namespace App\Controller\admin;
 
 use App\Entity\Projet;
+use App\Form\KeywordSearchType;
 use App\Form\ProjetType;
 use App\Repository\ProjetRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,11 +15,35 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/projet')]
 class AdminProjetController extends AbstractController
 {
-    #[Route('/', name: 'projet_index', methods: ['GET'])]
-    public function index(ProjetRepository $projetRepository): Response
-    {
-        return $this->render('admin/projet/index.html.twig', [
-            'projets' => $projetRepository->findAll(),
+    #[Route('/', name: 'projet_index', methods: ['GET', 'POST'])]
+    public function index(
+        ProjetRepository $projetRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+
+        $form = $this->createForm(KeywordSearchType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            if (!empty($search)) {
+                $query = $projetRepository->findLikeName($search);
+            } else {
+                $query = $projetRepository->findBy([], ['id' => 'DESC']);
+            }
+        } else {
+            $query = $projetRepository->findBy([], ['id' => 'DESC']);
+        }
+
+        $pagination = $paginator->paginate(
+            $query, /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10 /*limit per page*/
+        );
+        return $this->renderForm('admin/projet/index.html.twig', [
+            'pagination' => $pagination,
+            'form' => $form
         ]);
     }
 
