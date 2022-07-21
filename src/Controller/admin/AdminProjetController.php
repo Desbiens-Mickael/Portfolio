@@ -31,6 +31,8 @@ class AdminProjetController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $projetRepository->add($projet, true);
 
+            $this->addFlash('success', 'Le nouveau projet a bien été créé');
+
             return $this->redirectToRoute('projet_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -57,6 +59,8 @@ class AdminProjetController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $projetRepository->add($projet, true);
 
+            $this->addFlash('success', 'Le projet a bien été modifié');
+
             return $this->redirectToRoute('projet_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -71,6 +75,7 @@ class AdminProjetController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$projet->getId(), $request->request->get('_token'))) {
             $projetRepository->remove($projet, true);
+            $this->addFlash('success', 'Le projet a bien été supprimé');
         }
 
         return $this->redirectToRoute('projet_index', [], Response::HTTP_SEE_OTHER);

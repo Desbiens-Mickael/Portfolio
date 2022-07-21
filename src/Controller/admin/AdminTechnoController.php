@@ -31,6 +31,8 @@ class AdminTechnoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $technoRepository->add($techno, true);
 
+            $this->addFlash('success', 'La nouvelle techno a bien été créée');
+
             return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -57,6 +59,8 @@ class AdminTechnoController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $technoRepository->add($techno, true);
 
+            $this->addFlash('success', 'La techno a bien été modifiée');
+
             return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -71,6 +75,7 @@ class AdminTechnoController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$techno->getId(), $request->request->get('_token'))) {
             $technoRepository->remove($techno, true);
+            $this->addFlash('success', 'La techno a bien été supprimée');
         }
 
         return $this->redirectToRoute('techno_index', [], Response::HTTP_SEE_OTHER);
