@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil!{% endblock %}
+{% block title %}Accuei{% endblock %}
 
 {% block body %}
     <div class="container">
 {#        <a href=""><img src="{{ asset('build/images/') }}" alt="" class="img-prez"></a>#}
-        <div class="h-100 w-100 d-flex flex-column justify-content-around">
+        <div class="d-flex flex-column justify-content-center box-home">
             <h1 class="text-center">{{ user.lastname }} {{ user.firstname }}</h1>
-            <h2 class="text-center">Développeur web junior</h2>
-            <a href="" class="btn btn-outline-primary m-auto">Qui suis-je ?</a>
+            <h2 class="text-center mt-3 mb-5">Développeur web junior</h2>
+            <a href="{{ path('profil') }}" class="btn btn-outline-primary mx-auto">Qui suis-je ?</a>
         </div>
 
     </div>
