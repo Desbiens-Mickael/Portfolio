@@ -22,7 +22,7 @@ class UserFixtures extends Fixture
         $user->setLastname('Desbiens');
         $user->setEmail('desbiens.mickael01@gmail.com');
         $user->setGithub('https://github.com/Desbiens-Mickael');
-        $user->setLinkedin('www.linkedin.com/in/mickael-desbiens');
+        $user->setLinkedin('https://www.linkedin.com/in/mickael-desbiens/');
         $user->setRoles(['ROLE_ADMIN']);
         $hashedPassword = $this->passwordHasher->hashPassword(
             $user,
