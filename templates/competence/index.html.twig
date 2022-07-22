@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Compétence{% endblock %}
+
+{% block body %}
+    <div class="container d-flex flex-column justify-content-around align-items-center my-5 box-skill">
+        {% for techno in technologies  %}
+            <div class="d-flex flex-row justify-content-center align-items-center w-100">
+
+                <div class="w-25 text-center">
+                    <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.image }}">
+                </div>
+
+                <div class="progress w-100">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                         aria-valuenow="{{ techno.progress}}" aria-valuemin="0" aria-valuemax="100"
+                         style="width:{{ techno.progress}}%"></div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
