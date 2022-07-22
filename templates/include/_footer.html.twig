@@ -3,10 +3,15 @@
         <p class="text-light m-0">© 2022</p>
     </div>
     <div class=" container d-flex flex-row justify-content-start img-box-footer">
+
         <div class="d-flex flex-row justify-content-evenly w-100">
-            <a href="{{ user.github }}"><img src="{{ asset('build/images/github.png') }}" alt="" class="img-footer"></a>
-            <a href="{{ user.linkedin }}"><img src="{{ asset('build/images/linkedin.png') }}" alt="" class="img-footer"></a>
-            <a href=""><img src="{{ asset('build/images/lettre.png') }}" alt="" class="img-footer"></a>
+            <a href="{{ app.session.get('user').github }}" target="_blank">
+                <img src="{{ asset('build/images/github.png') }}" alt="github" class="img-footer"></a>
+
+            <a href="{{ app.session.get('user').linkedin }}" target="_blank">
+                <img src="{{ asset('build/images/linkedin.png') }}" alt="linkedin" class="img-footer"></a>
+
+            <a href=""><img src="{{ asset('build/images/lettre.png') }}" alt="contact" class="img-footer"></a>
         </div>
     </div>
 </footer>

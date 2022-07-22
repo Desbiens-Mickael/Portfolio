@@ -21,7 +21,6 @@ class ProjetFixtures extends Fixture
         for ($i = 0; $i < 20; $i++) {
             $projet = new Projet();
             $projet->setName($faker->words(3, true));
-            $projet->setImage('aaaaaaaa');
             $projet->setDescriptif($faker->paragraphs(4, true));
             $projet->setLink('#');
             $projet->setSlug($this->slugger->slug(strtolower($projet->getName())));
