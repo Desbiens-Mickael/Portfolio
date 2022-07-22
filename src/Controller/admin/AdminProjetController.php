@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 #[IsGranted('ROLE_ADMIN')]
-#[Route('/projet')]
+#[Route('/projet/admin')]
 class AdminProjetController extends AbstractController
 {
     #[Route('/', name: 'projet_index', methods: ['GET', 'POST'])]

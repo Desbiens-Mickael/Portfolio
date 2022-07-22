@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projet{% endblock %}
+
+{% block body %}
+    <h1 class="text-center mt-5">Mes réalisations</h1>
+
+    <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for projet in projets %}
+                <div class="col">
+                    <div class="card">
+
+                        {% if vich_uploader_asset(projet) %}
+                            <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
+                                 class="card-img-top">
+                        {% else %}
+                            <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
+                                 class="card-img-top">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <a href="{{ path('projet_prez_show', {'slug': projet.slug}) }}" class="text-decoration-none text-dark">
+                                <h5 class="card-title text-center">{{ projet.name }}</h5></a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

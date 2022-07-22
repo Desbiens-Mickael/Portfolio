@@ -17,7 +17,7 @@
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ techno.image }}</td>
+                <td>{{ techno.image ? techno.image : "pas d'image trouvée" }}</td>
             </tr>
             <tr>
                 <th>Progress</th>
@@ -25,6 +25,17 @@
             </tr>
         </tbody>
     </table>
+<div class="text-center mb-5">
+    {% if vich_uploader_asset(techno) %}
+        <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+             class="img-techno">
+    {% else %}
+        <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+             class="img-techno">
+    {% endif %}
+    <p>{{ techno.name }}</p>
+</div>
+
 
     <a class="btn btn-outline-primary" href="{{ path('techno_index') }}">
         <i class="bi bi-backspace"></i>
