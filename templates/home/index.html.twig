@@ -1,22 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Accueil!{% endblock %}
 
 {% block body %}
     <div class="container">
-        <style>
-            .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-            .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-        </style>
-
-        <div class="example-wrapper">
-            <h1>Hello {{ controller_name }}! ✅</h1>
-
-            This friendly message is coming from:
-            <ul>
-                <li>Your controller at <code><a href="{{ 'C:/Users/desbi/Desktop/Wild_code_school/Projet/portfolio/src/Controller/HomeController.php'|file_link(0) }}">src/Controller/HomeController.php</a></code></li>
-                <li>Your template at <code><a href="{{ 'C:/Users/desbi/Desktop/Wild_code_school/Projet/portfolio/templates/home/index.html.twig'|file_link(0) }}">templates/home/index.html.twig</a></code></li>
-            </ul>
+{#        <a href=""><img src="{{ asset('build/images/') }}" alt="" class="img-prez"></a>#}
+        <div class="h-100 w-100 d-flex flex-column justify-content-around">
+            <h1 class="text-center">{{ user.lastname }} {{ user.firstname }}</h1>
+            <h2 class="text-center">Développeur web junior</h2>
+            <a href="" class="btn btn-outline-primary m-auto">Qui suis-je ?</a>
         </div>
+
     </div>
 {% endblock %}
