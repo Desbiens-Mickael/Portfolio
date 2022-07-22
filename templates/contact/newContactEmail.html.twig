@@ -1,0 +1,9 @@
+{% extends "baseEmail.html.twig" %}
+
+        {% block title %}Nouveau message{% endblock %}
+
+        {% block body %}
+            <h1>De : {{ contact.lastname }} {{ contact.firstname}}</h1>
+            <p>{{ contact.message }}</p>
+            <p>Date d'envoi: {{contact.date|date('d/m/Y') }}</p>
+        {% endblock %}
