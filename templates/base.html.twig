@@ -16,7 +16,16 @@
     </head>
     <body class="h-100 d-flex flex-column ">
         {% include 'include/_navbar.html.twig' %}
-        <main>{% block body %}{% endblock %}</main>
+        <main>
+            {% for category, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ category }}" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            {% block body %}{% endblock %}
+        </main>
         {% include 'include/_footer.html.twig' %}
     </body>
 </html>
