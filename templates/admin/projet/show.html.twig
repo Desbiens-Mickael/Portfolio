@@ -1,0 +1,57 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Projet{% endblock %}
+
+{% block body %}
+    <h1 class="text-center my-3">Projet {{ projet.name }}</h1>
+    
+    <div class="container text-center mb-5">
+        {% if vich_uploader_asset(projet) %}
+            <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
+                 class="rounded-5 w-75">
+        {% else %}
+            <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
+                 class="rounded-5 w-75">
+        {% endif %}
+        <p>Date de création : {{ projet.date|date("d/m/Y") }}</p>
+
+        <section class="text-center my-5 w-75 mx-auto">
+            <h2>Description</h2>
+            <p class="text-center">{{ projet.descriptif|raw }}</p>
+        </section>
+
+        <div class="container">
+            <div class="row">
+            {% for techno in projet.techno  %}
+                    <div class="col-2 mx-auto">
+                        {% if vich_uploader_asset(techno) %}
+                            <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                                 class="img-techno">
+                        {% else %}
+                            <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+                                 class="img-techno">
+                        {% endif %}
+                        <p>{{ techno.name }}</p>
+                    </div>
+            {% endfor %}
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-around align-items-center border-1 border-dark py-3
+         rounded-3 btn-box shadow">
+            <div>
+                <a class="btn btn-outline-primary shadow" href="{{ path('projet_index') }}">
+                    <i class="bi bi-backspace"></i>
+                    Retour</a>
+
+                <a class="btn btn-outline-primary shadow" href="{{ path('projet_edit', {'id': projet.id}) }}">
+                    <i class="bi bi-pencil"></i>
+                    Modifier</a>
+            </div>
+            <div>
+                {{ include('admin/projet/_delete_form.html.twig') }}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

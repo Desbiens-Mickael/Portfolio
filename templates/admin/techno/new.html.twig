@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Nouvelle Techno{% endblock %}
+
+{% block body %}
+    <h1>Créer une nouvelle Techno</h1>
+
+    {{ include('admin/techno/_form.html.twig') }}
+
+    <a class="btn btn-outline-primary m-btn" href="{{ path('techno_index') }}">
+        <i class="bi bi-backspace"></i> retour à la liste</a>
+{% endblock %}
