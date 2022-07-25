@@ -14,7 +14,7 @@ use Symfony\Component\Mime\Email;
 
 class ContactController extends AbstractController
 {
-    #[Route('/contact', name: 'contact')]
+    #[Route('/contact', name: 'contact', methods: ['POST', 'GET'])]
     public function index(
         Request $request,
         ContactRepository $contactRepository,

@@ -32,7 +32,9 @@ class ProjetType extends AbstractType
                 ],
             ])
             ->add('link', TextType::class)
-            ->add('date', DateType::class)
+            ->add('date', DateType::class, [
+                'widget' => 'single_text'
+            ])
 
             ->add('techno', EntityType::class,[
                 'class' => Techno::class,

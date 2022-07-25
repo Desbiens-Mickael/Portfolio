@@ -25,7 +25,7 @@
             <tr class="text-center">
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.name }}</td>
-                <td>{{ projet.date ? projet.date|date('Y-m-d') : '' }}</td>
+                <td>{{ projet.date ? projet.date|date('d-m-Y') : '' }}</td>
                 <td>{{ projet.slug }}</td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('projet_show', {'id': projet.id}) }}">
