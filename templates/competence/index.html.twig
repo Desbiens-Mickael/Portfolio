@@ -3,26 +3,36 @@
 {% block title %}Compétence{% endblock %}
 
 {% block body %}
-    <div class="container d-flex flex-column justify-content-around align-items-center my-5 box-skill">
-        {% for techno in technologies  %}
-            <div class="d-flex flex-row justify-content-center align-items-center w-100">
-
-                <div class="w-25 text-center">
-                    {% if vich_uploader_asset(techno) %}
-                        <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
-                             class="img-techno">
-                    {% else %}
-                        <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
-                             class="img-techno">
-                    {% endif %}
-                </div>
-
-                <div class="progress w-100">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                         aria-valuenow="{{ techno.progress}}" aria-valuemin="0" aria-valuemax="100"
-                         style="width:{{ techno.progress}}%">{{ techno.progress }}%</div>
-                </div>
+    <section class="container-fluid h-100 box-skills">
+        <div class="row g-4">
+            <div class="col-12 d-flex flex-row justify-content-center">
+                <h2 class="border-bottom border-dark border-2 pb-3 mb-5 text-primary">MES COMPÉTENCES</h2>
             </div>
-        {% endfor %}
-    </div>
+            <div class="col-12 col-md-4">
+                <img class="img-fluid rounded-5" src="{{ asset('build/images/competence.png') }}" alt="">
+            </div>
+            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center my-5">
+                {% for techno in technologies  %}
+                    <div class="d-flex flex-row justify-content-center align-items-center w-100">
+
+                        <div class="w-25 text-center">
+                            {% if vich_uploader_asset(techno) %}
+                                <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                                     class="img-techno">
+                            {% else %}
+                                <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+                                     class="img-techno">
+                            {% endif %}
+                        </div>
+
+                        <div class="progress w-100">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                                 aria-valuenow="{{ techno.progress}}" aria-valuemin="0" aria-valuemax="100"
+                                 style="width:{{ techno.progress}}%">{{ techno.progress }}%</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

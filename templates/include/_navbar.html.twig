@@ -1,42 +1,54 @@
-<nav class="navbar navbar-expand-lg fixed-top shadow-lg">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/"><img src="{{ asset('build/images/profil.jpg') }}" alt="" class="img-profil"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-            <span class="navbar-toggler-icon text-light"></span>
-        </button>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-            <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-center flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link active fs-4 pe-lg-5 text-center " aria-current="page" href="/">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 pe-lg-5 text-center" href="{{ path('profil') }}">Profil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 pe-lg-5 text-center" href="{{ path('competence') }}">Compétence</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 pe-lg-5 text-center" href="{{ path('projet_prez_index') }}">Projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link fs-4 pe-lg-5 text-center" href="{{ path('contact') }}">Contact</a>
-                    </li>
-                    <li class="mt-auto"></li>
-                    {% if is_granted("ROLE_ADMIN") %}
-                        <li class="nav-item ">
-                            <a class="nav-link active fs-5 text-light text-center link-navbar" href="{{ path('admin') }}">
-                                <i class="fas fa-gauge-high fa-fw"></i>
-                                Tableau de bord admin
-                            </a>
+<header id="header">
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/"><img src="{{ asset('build/images/logo.png') }}" alt=""
+                                                  class="img-logo"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                 aria-labelledby="offcanvasNavbarLabel" >
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link active fs-5 pe-lg-5 text-center text-primary" aria-current="page"
+                               href="{{ path('home') }}">Accueil</a>
                         </li>
-                    {% endif %}
-                </ul>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 pe-lg-5 text-center text-primary"
+                               href="{{ path('profil') }}">Profil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 pe-lg-5 text-center text-primary"
+                               href="{{ path('competence') }}">Compétence</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 pe-lg-5 text-center text-primary"
+                               href="{{ path('projet_prez_index') }}">Projets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-5 pe-lg-5 text-center text-primary"
+                               href="{{ path('contact') }}">Contact</a>
+                        </li>
+                        <li class="mt-auto"></li>
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <li class="nav-item ">
+                                <a class="nav-link active fs-5 text-light text-center link-navbar text-primar5"
+                                   href="{{ path('admin') }}">
+                                    <i class="fas fa-gauge-high fa-fw"></i>
+                                    Tableau de bord admin
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
+</header>

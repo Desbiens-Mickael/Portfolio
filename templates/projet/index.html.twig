@@ -3,29 +3,37 @@
 {% block title %}Projet{% endblock %}
 
 {% block body %}
-    <h1 class="text-center mt-5">Mes réalisations</h1>
+    <section class="h-100 box-project">
+        <div class="d-flex flex-row justify-content-center">
+            <h2 id="projet" class="border-bottom border-dark border-2 pb-3 mb-5">MES PROJETS</h2>
+        </div>
 
-    <div class="container my-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            {% for projet in projets %}
-                <div class="col">
-                    <div class="card">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-3 g-4 d-flex flex-row justify-content-center">
+                {% for projet in pagination %}
+                    <div class="col">
+                        <div class="card shadow">
 
-                        {% if vich_uploader_asset(projet) %}
-                            <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                                 class="card-img-top">
-                        {% else %}
-                            <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                                 class="card-img-top">
-                        {% endif %}
+                            {% if vich_uploader_asset(projet) %}
+                                <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
+                                     class="card-img-top">
+                            {% else %}
+                                <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
+                                     class="card-img-top">
+                            {% endif %}
 
-                        <div class="card-body">
-                            <a href="{{ path('projet_prez_show', {'slug': projet.slug}) }}" class="text-decoration-none text-dark">
-                                <h5 class="card-title text-center">{{ projet.name }}</h5></a>
+                            <div class="card-body">
+                                <a href="{{ path('projet_prez_show', {'slug': projet.slug}) }}"
+                                   class="text-decoration-none text-dark">
+                                    <h5 class="card-title text-center">{{ projet.name }}</h5></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="navigation mb-5 d-flex flex-row justify-content-center pt-5">
+                {{ knp_pagination_render(pagination) }}
+            </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

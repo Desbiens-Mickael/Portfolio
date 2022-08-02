@@ -1,4 +1,22 @@
 body{
   background-color: $light;
   box-sizing: border-box;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  overflow: visible !important;
+}
+
+h1, h2, h3{
+  letter-spacing: .2rem;
+  font-weight: normal;
+}
+
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
 }

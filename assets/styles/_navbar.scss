@@ -1,7 +1,16 @@
-.img-profil{
+.img-logo{
   border-radius: 100%;
   height: 70px;
-  width: 100px;
-  margin-left: 1.5rem;
-  filter: drop-shadow(0 0 0.5rem $light);
+  width: 70px;
+  margin-left: 2rem;
+}
+
+.nav-link:hover{
+  color: #fc5904 !important;
+}
+
+@media screen and (max-width: 990px){
+  .offcanvas-body{
+    background-color: $dark;
+  }
 }

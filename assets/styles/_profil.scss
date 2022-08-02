@@ -1,4 +1,22 @@
-.log-profil{
-  height: 70px;
-  width: 70px;
+.profil-section{
+  padding-top: 6rem;
+  .box-profil{
+    position: relative;
+    .img-profil{
+      width: 200px;
+      border-radius: 100%;
+      transform: rotate(5deg);
+    }
+  }
+  .box-profil::before{
+    content : '';
+    position: absolute;
+    top: -13%;
+    width: 200px;
+    height: 300px;
+    border-radius: 100%;
+    background-color : $secondary;
+    z-index: -1;
+    transform: rotate(-55deg);
+  }
 }

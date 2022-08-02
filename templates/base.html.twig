@@ -14,9 +14,13 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body class="h-100 d-flex flex-column ">
+    <body class="h-100 d-flex flex-column "
+{#            {{ stimulus_controller('symfony/ux-swup/swup', {#}
+{#                containers: ['#swup', '#header'],#}
+{#            }) }}#}
+    >
         {% include 'include/_navbar.html.twig' %}
-        <main>
+        <main id="swup" class="transition-fade">
             {% for category, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{ category }}" role="alert">

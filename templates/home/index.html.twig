@@ -3,16 +3,14 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
-    <div class="container-fluid home-container d-flex flex-column justify-content-center align-items-center">
+    <section id="accueil">
+        <div class="container-fluid home-container d-flex flex-column justify-content-center align-items-center shadow-lg">
 
-        <div class="d-flex flex-column text-white mx-auto border-start border-5">
-            <h1 class="ms-3 fs-3 w-auto">Bonjour, je suis {{ user.lastname }} {{ user.firstname }}</h1>
-            <h2 class="ms-3 fs-3 w-auto">Développeur web junior</h2>
-            <p class="ms-3 mb-0 fs-3 w-auto">Je vous souhaite la bienvenue sur mon Portefolio.</p>
+            <div class="d-flex flex-column text-white mx-auto border-start border-5">
+                <h1 class="ms-3 fs-3 fw-normal w-auto">Bonjour, je suis {{ user.firstname }} {{ user.lastname }} </h1>
+                <h2 class="ms-3 fs-3 fw-normal  w-auto">Développeur web</h2>
+                <p class="ms-3 mb-0 fs-3 fw-normal w-auto">Je vous souhaite la bienvenue sur mon Portefolio.</p>
+            </div>
         </div>
-        <div class="bg-danger"></div>
-        <div class="bg-primary "></div>
-        <div class="bg-success"></div>
-        <div class="bg-warning"></div>
-    </div>
+    </section>
 {% endblock %}

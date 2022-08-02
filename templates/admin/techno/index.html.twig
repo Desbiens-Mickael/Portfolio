@@ -22,7 +22,8 @@
             <tr class="text-center">
                 <td>{{ techno.id }}</td>
                 <td>{{ techno.name }}</td>
-                <td>{{ techno.image }}</td>
+                <td>  <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                           class="img-techno"></td>
                 <td>{{ techno.progress }}</td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('techno_show', {'id': techno.id}) }}">

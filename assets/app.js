@@ -8,6 +8,8 @@
 // any SCSS you import will output into a single scss file (app.scss in this case)
 import './styles/app.scss';
 
+import './swup'
+
 // start the Stimulus application
 import './bootstrap';
 

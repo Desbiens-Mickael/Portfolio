@@ -3,43 +3,26 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <div class="row ">
-            <div class="mt-5 col-12 col-md-6">
-                <img class="rounded-5  img-fluid" src="{{ asset('build/images/Profil_lg.jpg') }}" alt="">
+    <section class="container-fluid profil-section h-100" id="profil">
+        <div class="row g-4">
+            <div class="col-12 d-flex flex-row justify-content-center">
+                <h2 class="border-bottom border-dark border-2 pb-3 mb-5 ">PROFIL</h2>
             </div>
-            <div class="mt-5 col-12 col-md-6 ">
-                <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit ,
-                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                    est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-                    veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-                    nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                </p>
-                <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-                    dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit ,
-                    sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                    est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
-                    modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-                    veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea
-                    commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam
-                    nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"
-                </p>
+
+            <div class="col-12 col-md-6 box-profil d-flex flex-column justify-content-around align-items-center">
+                <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
+                     alt="{{ user.firstname }} {{ user.lastname }}">
+                <a class="btn btn-secondary mt-5 shadow" href="#">Télécharger</a>
             </div>
-            <div class="my-5 col-12 text-center">
-                <a href="{{ user.github }}" target="_blank">
-                    <img class="log-profil mx-5" src="{{ asset('build/images/github.png') }}" alt="">
-                </a>
-                <a href="{{ user.linkedin }}" target="_blank">
-                    <img class="log-profil mx-5" src="{{ asset('build/images/linkedin.png') }}" alt="">
-                </a>
+            <div class="col-12 col-md-6 d-flex flex-row justify-content-center justify-content-md-start
+                        align-items-center">
+                <p class="w-75 my-auto">Passionné par la réalisation et la création de site web,
+                    je me suis donc lancé dans le développement.
+                    Fort de mes expériences passées, je suis une personne très investie dans le travail
+                    et je prends grand plaisir à l’exercer, le travail en équipe
+                    et la gestion du stress font partie de mes points forts.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

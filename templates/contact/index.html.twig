@@ -3,17 +3,29 @@
 {% block title %}Contact{% endblock %}
 
 {% block body %}
-    <div class="container w-75 mt-5">
-        <h1 class="text-center mb-3">Me contacter</h1>
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <div class="text-center">
-            <button class="btn btn-outline-success mt-2 ms-2">Envoyer</button>
+    <section class="box-contact">
+        <div class="d-flex flex-row justify-content-center">
+            <h2 class="border-bottom border-dark border-2 pb-3 text-primary">CONTACT</h2>
         </div>
+        <div class="container-fluide w-100 ">
+            <div class="row me-box d-flex flex-column align-items-end py-5">
+                <h3 class="col-12 col-md-6 fs-2 text-center">N’HÉSITEZ PAS À ME CONTACTER</h3>
 
-        {{ form_end(form) }}
+                {{ form_start(form, {
+                    'attr':
+                    {'class': 'row col-12 col-md-6 d-flex flex-row justify-content-between'}}) }}
 
+                <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.firstname) }}</div>
+                <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.lastname) }}</div>
 
-    </div>
-
+                <div class="col-12 p-0 form-box">{{ form_row(form.objet) }}</div>
+                <div class="col-12 p-0 form-box">{{ form_row(form.email) }}</div>
+                <div class="col-12 p-0 form-box">{{ form_row(form.message) }}</div>
+                <div class="col-12 p-0">
+                    <button class="btn btn-primary my-2 w-100 shadow">Envoyer</button>
+                </div>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </section>
 {% endblock %}
