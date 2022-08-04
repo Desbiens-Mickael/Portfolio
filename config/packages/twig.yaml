@@ -5,6 +5,7 @@ twig:
         uploads_dir: '%uploads_dir%'
         images_projet_dir: '%images_projet_dir%'
         images_techno_dir: '%images_techno_dir%'
+        pdf_cv_dir: '%pdf_cv_dir%'
 
 when@test:
     twig:

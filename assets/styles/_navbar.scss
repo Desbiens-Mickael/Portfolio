@@ -9,8 +9,20 @@
   color: #fc5904 !important;
 }
 
+ul{
+  i{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 990px){
   .offcanvas-body{
     background-color: $dark;
+    ul{
+      padding-left: 8rem;
+      i{
+        display: initial;
+      }
+    }
   }
 }

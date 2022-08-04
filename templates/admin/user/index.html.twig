@@ -1,0 +1,52 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Mon compte{% endblock %}
+
+{% block body %}
+    <h1 class="text-center">Mon compte</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        {% for user in users %}
+            <h3>Email</h3>
+            <p>{{ user.email }}</p>
+
+            <h3>Roles</h3>
+            <p>{{ user.roles ? user.roles|json_encode : '' }}</p>
+
+            <h3>Password</h3>
+            <p>{{ user.password }}</p>
+
+            <h3>Prénom</h3>
+            <p>{{ user.firstname }}</p>
+
+            <h3>Nom</h3>
+            <p>{{ user.lastname }}</p>
+
+            <h3>Github</h3>
+            <p>{{ user.github }}</p>
+
+            <h3>Linkedin</h3>
+            <p>{{ user.linkedin }}</p>
+
+            <h3>Cv</h3>
+            <a href="{{ vich_uploader_asset(user) }}">cv</a>
+
+            <h3>actions</h3>
+            <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
+
+        {% else %}
+                <h3>aucun utilisateur</h3>
+        {% endfor %}
+
+{% endblock %}

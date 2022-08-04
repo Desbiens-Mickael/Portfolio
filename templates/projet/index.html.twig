@@ -4,7 +4,7 @@
 
 {% block body %}
     <section class="h-100 box-project">
-        <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row justify-content-center mt-5">
             <h2 id="projet" class="border-bottom border-dark border-2 pb-3 mb-5">MES PROJETS</h2>
         </div>
 
@@ -12,19 +12,19 @@
             <div class="row row-cols-1 row-cols-md-3 g-4 d-flex flex-row justify-content-center">
                 {% for projet in pagination %}
                     <div class="col">
-                        <div class="card shadow">
+                        <div class="card shadow overflow-hidden h-100">
 
                             {% if vich_uploader_asset(projet) %}
                                 <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                                     class="card-img-top">
+                                     class="img-fluid">
                             {% else %}
                                 <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                                     class="card-img-top">
+                                     class="img-fluid">
                             {% endif %}
 
                             <div class="card-body">
                                 <a href="{{ path('projet_prez_show', {'slug': projet.slug}) }}"
-                                   class="text-decoration-none text-dark">
+                                   class="text-decoration-none text-dark stretched-link">
                                     <h5 class="card-title text-center">{{ projet.name }}</h5></a>
                             </div>
                         </div>

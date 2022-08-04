@@ -18,7 +18,7 @@ class ContactController extends AbstractController
     public function index(
         Request $request,
         ContactRepository $contactRepository,
-        MailerInterface $mailer
+        MailerInterface $mailer,
     ): Response
     {
         $contact = new Contact();

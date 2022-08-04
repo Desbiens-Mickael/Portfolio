@@ -4,16 +4,16 @@
 
 {% block body %}
     <section class="box-contact">
-        <div class="d-flex flex-row justify-content-center">
+        <div class="d-flex flex-row justify-content-center mt-5">
             <h2 class="border-bottom border-dark border-2 pb-3 text-primary">CONTACT</h2>
         </div>
-        <div class="container-fluide w-100 ">
-            <div class="row me-box d-flex flex-column align-items-end py-5">
+        <div class="container-fluide w-100 mt-1 mt-md-5">
+            <div class="row me-box d-flex flex-column align-items-center align-items-md-end gx-0 py-5">
                 <h3 class="col-12 col-md-6 fs-2 text-center">N’HÉSITEZ PAS À ME CONTACTER</h3>
 
                 {{ form_start(form, {
                     'attr':
-                    {'class': 'row col-12 col-md-6 d-flex flex-row justify-content-between'}}) }}
+                    {'class': 'row col-12 col-md-6 d-flex flex-row justify-content-between gx-0'}}) }}
 
                 <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.firstname) }}</div>
                 <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.lastname) }}</div>

@@ -3,16 +3,16 @@
 {% block title %}Projet {{ projet.name }}{% endblock %}
 
 {% block body %}
-    <section class="h-100">
-        <h1 class="text-center my-3">Projet {{ projet.name }}</h1>
+    <section class="h-100 project-show">
+        <h1 class="text-center my-4">{{ projet.name }}</h1>
 
         <div class="container text-center mb-5">
             {% if vich_uploader_asset(projet) %}
                 <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                     class="rounded-5 w-75">
+                     class="rounded-5 w-75 shadow">
             {% else %}
                 <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                     class="rounded-5 w-75">
+                     class="rounded-5 w-75 shadow">
             {% endif %}
             <p>Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
@@ -22,6 +22,7 @@
             </section>
 
             <div class="container">
+                <h2 class="mb-4">Stack technique</h2>
                 <div class="row row-cols-2 row-cols-lg-6">
                     {% for techno in projet.techno  %}
                         <div class="col mx-auto">

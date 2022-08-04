@@ -3,35 +3,42 @@
 {% block title %}Compétence{% endblock %}
 
 {% block body %}
-    <section class="container-fluid h-100 box-skills">
-        <div class="row g-4">
+    <section class="container-fluid h-100 box-skills mb-4">
+        <div class="row g-4 mt-3">
             <div class="col-12 d-flex flex-row justify-content-center">
                 <h2 class="border-bottom border-dark border-2 pb-3 mb-5 text-primary">MES COMPÉTENCES</h2>
             </div>
             <div class="col-12 col-md-4">
-                <img class="img-fluid rounded-5" src="{{ asset('build/images/competence.png') }}" alt="">
+                <img class="img-fluid rounded-5 shadow" src="{{ asset('build/images/competence.png') }}" alt="">
             </div>
-            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center my-5">
+            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center ">
+
                 {% for techno in technologies  %}
-                    <div class="d-flex flex-row justify-content-center align-items-center w-100">
+                    <div class="d-flex flex-row justify-content-start align-items-center w-100">
 
-                        <div class="w-25 text-center">
-                            {% if vich_uploader_asset(techno) %}
+                        {% if vich_uploader_asset(techno) %}
+                            <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start">
                                 <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
-                                     class="img-techno">
-                            {% else %}
+                                     class="img-tech">
+                            </div>
+                            <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}
+                                   d-flex flex-row shadow">
+                                <p class="m-0 text-light fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
+                            </div>
+                        {% else %}
+                            <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start">
                                 <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
-                                     class="img-techno">
-                            {% endif %}
-                        </div>
+                                     class="img-tech">
+                            </div>
+                            <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}
+                                        d-flex flex-row shadow">
+                                <p class="m-0 text-light fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
+                            </div>
+                        {% endif %}
 
-                        <div class="progress w-100">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                                 aria-valuenow="{{ techno.progress}}" aria-valuemin="0" aria-valuemax="100"
-                                 style="width:{{ techno.progress}}%">{{ techno.progress }}%</div>
-                        </div>
                     </div>
                 {% endfor %}
+
             </div>
         </div>
     </section>

@@ -2,13 +2,18 @@
 
 namespace App\Entity;
 
+use DateTime;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-class User implements UserInterface, PasswordAuthenticatedUserInterface
+#[Vich\Uploadable]
+class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serializable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -39,6 +44,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $linkedin = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cv = null;
+
+    #[Vich\UploadableField(mapping: 'pdf_cv', fileNameProperty: 'cv')]
+    #[Assert\File(
+        maxSize: '3M',
+        mimeTypes: ['application/pdf'],
+    )]
+    private ?File $cvFile = null;
+
+    #[ORM\Column(type: 'datetime')]
+    private ?\DateTimeInterface $updatedAt = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,7 +81,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string) $this->email;
+        return (string)$this->email;
     }
 
     /**
@@ -155,5 +173,60 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->linkedin = $linkedin;
 
         return $this;
+    }
+
+    public function getCv(): ?string
+    {
+        return $this->cv;
+    }
+
+    public function setCv(?string $cv): self
+    {
+        $this->cv = $cv;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function setCvFile(File $image = null): void
+    {
+        $this->cvFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getCvFile(): ?File
+    {
+        return $this->cvFile;
+    }
+
+    public function serialize(): ?string
+    {
+        return serialize(array(
+            $this->id,
+            $this->email,
+            $this->password,
+        ));
+    }
+
+    public function unserialize(string $serialized)
+    {
+        list(
+            $this->id,
+            $this->email,
+            $this->password,
+            ) = unserialize($serialized);
     }
 }
