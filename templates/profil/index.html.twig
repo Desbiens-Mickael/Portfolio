@@ -3,21 +3,22 @@
 {% block title %}Profil{% endblock %}
 
 {% block body %}
-    <section class="container-fluid profil-section h-100" id="profil">
-        <div class="row g-4 mt-3">
-            <div class="col-12 d-flex flex-row justify-content-center">
-                <h2 class="border-bottom border-dark border-2 pb-3 mb-5 ">PROFIL</h2>
+    <section class="container-fluid profil-section h-100 pb-5">
+        <div class="row">
+            <div class="col-12 d-flex flex-row justify-content-center mt-5 transition-fade delay3">
+                <h2 class="border-bottom border-light border-2 pb-3 mb-5 text-light">PROFIL</h2>
             </div>
 
-            <div class="col-12 col-md-6 box-profil d-flex flex-column justify-content-around align-items-center">
+            <div class="col-12 col-md-6 box-profil d-flex flex-column justify-content-around align-items-center
+                        transition-fade delay1">
                 <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
                      alt="{{ user.firstname }} {{ user.lastname }}">
                 <a class="btn btn-secondary mt-5 shadow" href="{{ vich_uploader_asset(user) }}">
                     <i class="bi bi-download"></i> Mon CV</a>
             </div>
             <div class="col-12 col-md-6 d-flex flex-row justify-content-center justify-content-md-start
-                        align-items-center">
-                <p class="w-75 my-auto">Passionné par la réalisation et la création de site web,
+                        align-items-center transition-fade delay1">
+                <p class="w-75 my-auto text-light fs-5">Passionné par la réalisation et la création de site web,
                     je me suis donc lancé dans le développement.
                     Fort de mes expériences passées, je suis une personne très investie dans le travail
                     et je prends grand plaisir à l’exercer, le travail en équipe

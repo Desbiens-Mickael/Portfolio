@@ -3,12 +3,12 @@
 {% block title %}Projet{% endblock %}
 
 {% block body %}
-    <section class="h-100 box-project">
-        <div class="d-flex flex-row justify-content-center mt-5">
-            <h2 id="projet" class="border-bottom border-dark border-2 pb-3 mb-5">MES PROJETS</h2>
+    <section class="h-100 box-project pt-5">
+        <div class="d-flex flex-row justify-content-center mb-5 transition-fade delay3">
+            <h2 id="projet" class="border-bottom border-light border-2 pb-3 mb-5 text-light">MES PROJETS</h2>
         </div>
 
-        <div class="container">
+        <div class="container  transition-fade delay1">
             <div class="row row-cols-1 row-cols-md-3 g-4 d-flex flex-row justify-content-center">
                 {% for projet in pagination %}
                     <div class="col">

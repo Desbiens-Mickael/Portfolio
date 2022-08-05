@@ -3,8 +3,8 @@
 {% block title %}Projet {{ projet.name }}{% endblock %}
 
 {% block body %}
-    <section class="h-100 project-show">
-        <h1 class="text-center my-4">{{ projet.name }}</h1>
+    <section class="h-100 project-show pt-5 transition-pop">
+        <h1 class="text-center text-light mb-3">{{ projet.name }}</h1>
 
         <div class="container text-center mb-5">
             {% if vich_uploader_asset(projet) %}
@@ -14,16 +14,16 @@
                 <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
                      class="rounded-5 w-75 shadow">
             {% endif %}
-            <p>Date de création : {{ projet.date|date("d/m/Y") }}</p>
+            <p class="text-light">Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
-            <section class="text-center my-5 w-75 mx-auto">
+            <section class="text-center my-5 w-75 mx-auto text-light">
                 <h2>Description</h2>
                 <p class="text-center">{{ projet.descriptif|raw }}</p>
             </section>
 
             <div class="container">
-                <h2 class="mb-4">Stack technique</h2>
-                <div class="row row-cols-2 row-cols-lg-6">
+                <h2 class="mb-4 text-light">Stack technique</h2>
+                <div class="row row-cols-3 row-cols-lg-6">
                     {% for techno in projet.techno  %}
                         <div class="col mx-auto">
                             {% if vich_uploader_asset(techno) %}
@@ -33,12 +33,11 @@
                                 <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
                                      class="img-techno">
                             {% endif %}
-                            <p>{{ techno.name }}</p>
+                            <p class="text-light">{{ techno.name }}</p>
                         </div>
                     {% endfor %}
                 </div>
             </div>
-            <a href="{{ projet.link }}" class="btn btn-outline-primary mt-5">visité le site </a>
         </div>
     </section>
 {% endblock %}

@@ -1,11 +1,11 @@
 .profil-section{
-  padding-top: 6rem;
   .box-profil{
     position: relative;
     .img-profil{
       width: 200px;
       border-radius: 100%;
       transform: rotate(5deg);
+      z-index: 2;
     }
   }
   .box-profil::before{
@@ -16,7 +16,13 @@
     height: 300px;
     border-radius: 100%;
     background-color : $secondary;
-    z-index: -1;
+    z-index: 1;
     transform: rotate(-55deg);
+  }
+}
+
+@media screen and (max-width: 767px)  {
+  .profil-section{
+    background: linear-gradient($dark, #9198e5, $dark);
   }
 }

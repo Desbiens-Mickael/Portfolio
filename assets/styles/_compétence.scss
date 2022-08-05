@@ -1,5 +1,4 @@
 .box-skills{
-  padding-top: 6rem;
   .img-tech{
     width: 30px;
     height: 30px;
@@ -20,5 +19,11 @@
   }
   100%{
 
+  }
+}
+
+@media screen and (max-width: 767px)  {
+  .box-skills{
+    background: linear-gradient($dark, #9198e5, $dark);
   }
 }

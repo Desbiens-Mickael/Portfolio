@@ -1,5 +1,6 @@
 body{
-  background-color: $light;
+  background-image: url("/assets/images/accueil.png");
+  background-size: auto ;
   box-sizing: border-box;
   margin: 0 !important;
   padding: 0 !important;
@@ -12,13 +13,80 @@ h1, h2, h3{
   font-weight: normal;
 }
 
-.transition-fade {
-  transition: 0.4s;
-  opacity: 1;
+main{
+  margin-top: 6rem;
 }
 
-html.is-animating .transition-fade {
+h1{
+
+}
+
+.transition-fade {
+  transition: 0.6s;
+}
+.transition-translate-right{
+  transition: 0.6s;
+}
+
+.transition-translate-left{
+  transition: 0.6s;
+}
+
+.transition-pop{
+  transition: 0.6s;
+}
+
+html.is-animating .transition-fade{
   opacity: 0;
+  transform: translateY(50px);
+}
+
+html.is-animating .transition-translate-right{
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+html.is-animating .transition-translate-left{
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+html.is-animating .transition-pop{
+  opacity: 0;
+}
+
+html.is-animating.is-leaving .transition-fade{
+ transition-delay: 0s !important;
+}
+
+html.is-animating.is-leaving .transition-translate-right{
+  transition-delay: 0s !important;
+}
+
+html.is-animating.is-leaving .transition-translate-left{
+  transition-delay: 0s !important;
+}
+
+html.is-animating.is-leaving .transition-pop{
+  transition-delay: 0s !important;
+}
+
+.delay1{
+  transition-delay: .2s;
+}
+
+.delay2{
+  transition-delay: .4s;
+}
+
+.delay3{
+  transition-delay: .6s;
+}
+.delay4{
+  transition-delay: .8s;
+}
+.delay5{
+  transition-delay: .10s;
 }
 
 .width-10{

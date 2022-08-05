@@ -20,7 +20,7 @@
 {#            }) }}#}
     >
         {% include 'include/_navbar.html.twig' %}
-        <main id="swup" class="transition-fade">
+        <main id="swup" class="">
             {% for category, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{ category }}" role="alert">
