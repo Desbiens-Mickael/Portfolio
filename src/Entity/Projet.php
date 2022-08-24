@@ -29,7 +29,7 @@ class Projet
 
     #[Vich\UploadableField(mapping: 'images_projet', fileNameProperty: 'image')]
     #[Assert\File(
-        maxSize: '1M',
+        maxSize: '5M',
         mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
     )]
     private ?File $imageFile = null;

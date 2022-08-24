@@ -5,8 +5,38 @@
   margin-left: 2rem;
 }
 
-.nav-link:hover{
-  color: #fc5904 !important;
+.nav-link{
+  //color: $light !important;
+  position: relative;
+  &::after{
+    content: "";
+    position: absolute;
+    background-color: $light !important;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    transition: .4s;
+  }
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $light !important;
+    height: 1px;
+    width: 0;
+    right: 0;
+    bottom: -5px;
+    transition: .4s;
+  }
+  &:hover{
+    color: $light !important;
+  }
+  &:hover::after{
+    width: 100%;
+  }
+  &:hover::before{
+    width: 100%;
+  }
 }
 
 ul{
@@ -26,3 +56,4 @@ ul{
     }
   }
 }
+

@@ -6,7 +6,7 @@
     <section class="h-100 project-show pt-5 transition-pop">
         <h1 class="text-center text-light mb-3">{{ projet.name }}</h1>
 
-        <div class="container text-center mb-5">
+        <div class="container text-center ">
             {% if vich_uploader_asset(projet) %}
                 <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
                      class="rounded-5 w-75 shadow">
@@ -16,12 +16,12 @@
             {% endif %}
             <p class="text-light">Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
-            <section class="text-center my-5 w-75 mx-auto text-light">
+            <div class="text-center my-5 w-75 mx-auto text-light">
                 <h2>Description</h2>
                 <p class="text-center">{{ projet.descriptif|raw }}</p>
-            </section>
+            </div>
 
-            <div class="container">
+            <div class="container pb-5">
                 <h2 class="mb-4 text-light">Stack technique</h2>
                 <div class="row row-cols-3 row-cols-lg-6">
                     {% for techno in projet.techno  %}

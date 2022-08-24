@@ -5,10 +5,10 @@
     <div class=" container d-flex flex-row justify-content-start img-box-footer">
 
         <div class="d-flex flex-row justify-content-evenly w-100">
-            <a href="{{ app.session.get('github') }}" target="_blank">
+            <a href="{{ app.session.get('github') ? app.session.get('github') : '#' }}" target="_blank">
                 <img src="{{ asset('build/images/github.png') }}" alt="github" class="img-footer"></a>
 
-            <a href="{{ app.session.get('linkedin') }}" target="_blank">
+            <a href="{{ app.session.get('linkedin') ? app.session.get('linkedin') : '#' }}" target="_blank">
                 <img src="{{ asset('build/images/linkedin.png') }}" alt="linkedin" class="img-footer"></a>
 
             <a href="{{ path('contact') }}"><img src="{{ asset('build/images/lettre.png') }}" alt="contact" class="img-footer"></a>

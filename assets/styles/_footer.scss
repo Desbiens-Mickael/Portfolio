@@ -4,6 +4,9 @@ footer{
   .img-footer{
     height: 40px;
     width: 40px;
-    filter: drop-shadow(0 0 0.5rem $light);
+    filter: drop-shadow(0 0 .5rem $light);
+    &:hover{
+      filter: drop-shadow(0 0 .5rem $primary);
+    }
   }
 }
