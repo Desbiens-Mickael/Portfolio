@@ -11,14 +11,16 @@
 
         <form action="{{ path('login') }}" method="post" class="h-25 w-25 d-flex flex-column justify-content-around ">
             <label for="username"></label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" placeholder="Pseudo" class="rounded p-2"/>
+            <input type="text" id="username" name="_username" value="{{ last_username }}"
+                   placeholder="Pseudo" class="rounded p-2"/>
 
             <label for="password"></label>
             <input type="password" id="password" name="_password" placeholder="Password" class="rounded p-2 mb-4"/>
 
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-            {# If you want to control the URL the user is redirected to on success
-            <input type="hidden" name="_target_path" value="/account"/> #}
+            {# Si vous voulez contrôler l'URL vers laquelle l'utilisateur
+                        est redirigé en cas de succès, c'est possible. #}
+            <input type="hidden" name="_target_path" value="/admin"/>
 
             <button type="submit" class="rounded p-2 btn btn-primary">connexion</button>
         </form>

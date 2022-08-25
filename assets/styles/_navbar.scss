@@ -1,47 +1,53 @@
-.img-logo{
-  border-radius: 100%;
-  height: 70px;
-  width: 70px;
-  margin-left: 2rem;
-}
-
-.nav-link{
-  //color: $light !important;
-  position: relative;
-  &::after{
-    content: "";
-    position: absolute;
-    background-color: $light !important;
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: 0;
-    transition: .4s;
+.navbar {
+  .img-logo{
+    border-radius: 100%;
+    height: 70px;
+    width: 70px;
+    margin-left: 2rem;
   }
-  &::before{
-    content: "";
-    position: absolute;
-    background-color: $light !important;
-    height: 1px;
-    width: 0;
-    right: 0;
-    bottom: -5px;
-    transition: .4s;
-  }
-  &:hover{
-    color: $light !important;
-  }
-  &:hover::after{
-    width: 100%;
-  }
-  &:hover::before{
-    width: 100%;
-  }
-}
-
-ul{
-  i{
-    display: none;
+  ul{
+    li {
+      i {
+        display: none;
+      }
+      .nav-link{
+        position: relative;
+        &::before, &::after{
+          content: "";
+          position: absolute;
+          background-color: $primary !important;
+          width: 0;
+          transition: .4s;
+        }
+        &::before{
+          height: 1px;
+          right: 0;
+          bottom: -5px;
+        }
+        &::after{
+          height: 3px;
+          left: 0;
+          bottom: 0;
+        }
+        &:hover::before{
+          width: 100%;
+        }
+        &:hover::after{
+          width: 100%;
+        }
+      }
+      .active{
+        color: $light !important;
+        &::before{
+          width: 100%;
+          background-color: $light !important;
+        }
+        &::after{
+          width: 100%;
+          background-color: $light !important;
+        }
+      }
+    }
   }
 }
 
@@ -50,8 +56,18 @@ ul{
     background-color: $dark;
     ul{
       padding-left: 8rem;
-      i{
-        display: initial;
+      li {
+        i {
+          display: initial;
+        }
+        .nav-link{
+          &::after{
+            background-color: initial !important;
+          }
+          &::before{
+            background-color: initial !important;
+          }
+        }
       }
     }
   }

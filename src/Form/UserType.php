@@ -16,7 +16,7 @@ class UserType extends AbstractType
         $builder
             ->add('email', TextType::class)
 //            ->add('roles')
-            ->add('password', TextType::class)
+//            ->add('password', TextType::class)
             ->add('firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('github', TextType::class)
@@ -24,7 +24,7 @@ class UserType extends AbstractType
             ->add('cvFile', VichFileType::class, [
                 'required'      => false,
                 'allow_delete'  => true, //non obligatoire, la valeur par défaut est true
-                'download_uri' => true, // non obligatoire, la valeur par défaut est true
+                'download_uri' => false, // non obligatoire, la valeur par défaut est true
             ])
         ;
     }

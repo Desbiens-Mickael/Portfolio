@@ -7,6 +7,13 @@
       transform: rotate(5deg);
       z-index: 2;
     }
+    .btn-main {
+      @include reflectiveButton($primary, $dark, $primary);
+    }
+    .btn-ghost {
+      color:  $light;
+      transition: .5s;
+    }
   }
   .box-profil::before{
     content : '';
@@ -21,7 +28,7 @@
   }
 }
 
-@media screen and (max-width: 767px)  {
+@media screen and (max-width: 515px)  {
   .profil-section{
     background: linear-gradient($dark, #9198e5, $dark);
   }

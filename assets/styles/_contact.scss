@@ -2,13 +2,20 @@
   .me-box{
     margin-right: 8rem;
   }
-  //background-image: url("/assets/images/contact.png");
-  //background-size: cover;
   .container-fluide{
     form .form-box > div{
       width: 100%;
     }
   }
+}
+
+.btn-main-contact {
+  @include reflectiveButton($light, $primary, $light);
+}
+
+.btn-ghost-contact {
+  color:  $dark;
+  transition: .5s;
 }
 
 @media screen and (max-width: 990px){

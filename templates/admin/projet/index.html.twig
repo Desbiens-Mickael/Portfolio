@@ -12,11 +12,7 @@
             <tr class="table-dark text-center">
                 <th>{{ knp_pagination_sortable(pagination, 'Id', 'id') }}</th>
                 <th>{{ knp_pagination_sortable(pagination, 'Nom', 'name') }}</th>
-{#                <th>Image</th>#}
-{#                <th>Descriptif</th>#}
-{#                <th>Link</th>#}
                 <th>{{ knp_pagination_sortable(pagination, 'Date de création', 'date') }}</th>
-                <th>Slug</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -26,7 +22,6 @@
                 <td>{{ projet.id }}</td>
                 <td>{{ projet.name }}</td>
                 <td>{{ projet.date ? projet.date|date('d-m-Y') : '' }}</td>
-                <td>{{ projet.slug }}</td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('projet_show', {'id': projet.id}) }}">
                         <i class="bi bi-eye"></i>

@@ -1,0 +1,9 @@
+{% extends '/admin/base.html.twig' %}
+
+{% block title %}Modification du mot de passe{% endblock %}
+
+{% block body %}
+<h1 class="text-center">Modification du mot de passe</h1>
+{{ include('/admin/edit_user_password/_form.html.twig') }}
+    <a href="{{ path('user_index') }}" class="btn btn-outline-primary mt-3 px-4"><i class="bi bi-backspace"></i> Retour</a>
+{% endblock %}

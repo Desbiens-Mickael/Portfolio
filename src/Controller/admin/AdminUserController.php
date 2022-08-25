@@ -34,13 +34,12 @@ class AdminUserController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $hashedPassword = $passwordHasher->hashPassword(
-                $user,
-                $form->getData()->getPassword()
-            );
-            $user->setPassword($hashedPassword);
             $userRepository->add($user, true);
 
+            $this->addFlash(
+                'success',
+                'Vos infos ont bien été modifiées.'
+            );
             return $this->redirectToRoute('user_index', [], Response::HTTP_SEE_OTHER);
         }
 

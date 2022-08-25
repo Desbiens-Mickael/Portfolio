@@ -13,7 +13,8 @@
                         transition-fade delay1">
                 <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
                      alt="{{ user.firstname }} {{ user.lastname }}">
-                <a class="btn btn-secondary mt-5 shadow" href="{{ vich_uploader_asset(user) }}" target="_blank">
+                <a class="btn-main btn-ghost rounded-3 my-5 text-decoration-none shadow"
+                   href="{{ path( 'download' ) }}" target="_blank">
                     <i class="bi bi-download"></i> Mon CV</a>
             </div>
             <div class="col-12 col-md-6 d-flex flex-row justify-content-center justify-content-md-start

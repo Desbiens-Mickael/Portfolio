@@ -5,25 +5,25 @@
 {% block body %}
     <h1 class="text-center my-3">Projet {{ projet.name }}</h1>
     
-    <div class="container text-center mb-5">
+    <div class="container mb-5 d-flex flex-column justify-content-around align-items-center">
         {% if vich_uploader_asset(projet) %}
             <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                 class="rounded-5 w-75">
+                 class="rounded-5 w-75 text-center">
         {% else %}
             <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                 class="rounded-5 w-75">
+                 class="rounded-5 w-75 text-center">
         {% endif %}
-        <p>Date de création : {{ projet.date|date("d/m/Y") }}</p>
+        <p class="text-center">Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
-        <section class="text-center my-5 w-75 mx-auto">
-            <h2>Description</h2>
-            <p class="text-center">{{ projet.descriptif|raw }}</p>
+        <section class="my-5 w-75 mx-auto">
+            <h2 class="text-center">Description</h2>
+            <p class="">{{ projet.descriptif|raw }}</p>
         </section>
 
         <div class="container">
             <div class="row">
             {% for techno in projet.techno  %}
-                    <div class="col-2 mx-auto">
+                    <div class="col-2 mx-auto text-center">
                         {% if vich_uploader_asset(techno) %}
                             <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
                                  class="img-techno">
@@ -37,14 +37,14 @@
             </div>
         </div>
 
-        <div class="d-flex flex-row justify-content-around align-items-center border-1 border-dark py-3
-         rounded-3 btn-box shadow">
+        <div class="w-75 d-flex flex-row justify-content-around align-items-center py-3
+         rounded-3 btn-box shadow bg-dark">
             <div>
-                <a class="btn btn-outline-primary shadow" href="{{ path('projet_index') }}">
+                <a class="btn btn-primary shadow" href="{{ path('projet_index') }}">
                     <i class="bi bi-backspace"></i>
                     Retour</a>
 
-                <a class="btn btn-outline-primary shadow" href="{{ path('projet_edit', {'id': projet.id}) }}">
+                <a class="btn btn-primary shadow" href="{{ path('projet_edit', {'id': projet.id}) }}">
                     <i class="bi bi-pencil"></i>
                     Modifier</a>
             </div>

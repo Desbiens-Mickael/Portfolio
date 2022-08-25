@@ -54,7 +54,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     )]
     private ?File $cvFile = null;
 
-    #[ORM\Column(type: 'datetime')]
+    #[ORM\Column(type: 'datetime',  nullable: true)]
     private ?\DateTimeInterface $updatedAt = null;
 
     public function getId(): ?int

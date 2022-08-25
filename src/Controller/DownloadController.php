@@ -16,8 +16,8 @@ class DownloadController extends AbstractController
     public function downloadImageAction(UserRepository $userRepository, DownloadHandler $downloadHandler): Response
     {
         $user = $userRepository->find(1);
-//        $fileName = 'cv_desbiens_mickael.pdf';
+        $fileName = 'cv_desbiens_mickael.pdf';
 
-        return $downloadHandler->downloadObject($user, 'cvFile', null, null, false);
+        return $downloadHandler->downloadObject($user, 'cvFile', null, $fileName, false);
     }
 }

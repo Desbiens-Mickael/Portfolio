@@ -4,47 +4,69 @@
 
 {% block body %}
     <h1 class="text-center">Mon compte</h1>
-
-
-
-
-
-
-
-
-
-
-
-
-
         {% for user in users %}
-            <h3>Email</h3>
-            <p>{{ user.email }}</p>
+            <div class="container d-flex flex-column justify-content-around align-items-center pb-5">
+                <div class=" w-75 d-flex flex-row justify-content-around my-5 border
+                            border-2 rounded-3 p-2 shadow bg-warning bg-opacity-10">
+                    <div>
+                        <h3>Prénom</h3>
+                        <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                            {{ user.firstname }}</p>
+                    </div>
+                    <div>
+                        <h3>Nom</h3>
+                        <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                            {{ user.lastname }}</p>
+                    </div>
+                </div>
 
-            <h3>Roles</h3>
-            <p>{{ user.roles ? user.roles|json_encode : '' }}</p>
+                <div class="row w-75 border border-2 rounded-3 p-2 pb-3 shadow bg-dark">
+                    <h3 class="ps-4 text-light">Mot de passe</h3>
+                    <a href="{{ path('user_edit_password', { 'id': user.id}) }}"
+                       class=" col-6 btn btn-primary px-4 mx-auto">
+                        <i class="bi bi-pencil"></i> Modifier le mot de passe</a>
+                </div>
 
-            <h3>Password</h3>
-            <p>{{ user.password }}</p>
 
-            <h3>Prénom</h3>
-            <p>{{ user.firstname }}</p>
+                <div class=" w-75 d-flex flex-row justify-content-around mt-5 border border-2
+                             rounded-3 p-2 shadow bg-warning bg-opacity-10">
+                    <div>
+                        <h3 class="">Email</h3>
+                        <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                            {{ user.email }}</p>
+                    </div>
+                    <div>
+                        <h3 class="">Roles</h3>
+                        <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                            {{ user.roles ? user.roles|json_encode : '' }}</p>
+                    </div>
+                </div>
 
-            <h3>Nom</h3>
-            <p>{{ user.lastname }}</p>
+                <div class="mt-5 w-75 border border-2 rounded-3 p-2 ps-4 shadow bg-warning bg-opacity-10">
+                    <h3>Github</h3>
+                    <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                        {{ user.github }}</p>
+                </div>
+                <div class="mt-5 w-75 border border-2 rounded-3 p-2 ps-4 shadow bg-warning bg-opacity-10">
+                    <h3>Linkedin</h3>
+                    <p class="border border-1 border-dark border-opacity-25 rounded-3 bg-white p-2 shadow">
+                        {{ user.linkedin }}</p>
+                </div>
 
-            <h3>Github</h3>
-            <p>{{ user.github }}</p>
-
-            <h3>Linkedin</h3>
-            <p>{{ user.linkedin }}</p>
-
-            <h3>Cv</h3>
-            <a href="{{ vich_uploader_asset(user) }}">cv</a>
-
-            <h3>actions</h3>
-            <a href="{{ path('user_edit', {'id': user.id}) }}">Modifier</a>
-
+                <div class="w-75 d-flex flex-row justify-content-around mt-5 border border-2
+                            rounded-3 px-2 pb-3 pt-2 shadow bg-dark">
+                    <div>
+                        <h3 class="text-light">Cv</h3>
+                        <a href="{{ vich_uploader_asset(user) }}" target="_blank" class="btn btn-primary">
+                            <i class="bi bi-eye-fill"></i> Voir mon CV</a>
+                    </div>
+                    <div>
+                        <h3 class="text-light">actions</h3>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}"
+                           class="btn btn-primary px-4"><i class="bi bi-pencil"></i> Modifier</a>
+                    </div>
+                </div>
+            </div>
         {% else %}
                 <h3>aucun utilisateur</h3>
         {% endfor %}

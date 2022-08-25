@@ -17,14 +17,15 @@
                     {'class': 'row col-12 col-md-6 d-flex flex-row justify-content-between gx-0
                                 transition-translate-left delay1'}}) }}
 
-                <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.firstname) }}</div>
+                <div class="form-box form-floating col-12 col-md-5 p-0"> {{ form_row(form.firstname) }}</div>
                 <div class="form-box col-12 col-md-5 p-0"> {{ form_row(form.lastname) }}</div>
 
                 <div class="col-12 p-0 form-box">{{ form_row(form.objet) }}</div>
                 <div class="col-12 p-0 form-box">{{ form_row(form.email) }}</div>
                 <div class="col-12 p-0 form-box">{{ form_row(form.message) }}</div>
                 <div class="col-12 p-0">
-                    <button class="btn btn-primary my-2 w-100 shadow">Envoyer</button>
+                    <button class="btn btn-main-contact btn-ghost-contact my-2 w-100 shadow">
+                        <i class="bi bi-send-fill"></i> Envoyer</button>
                 </div>
                 {{ form_end(form) }}
             </div>
