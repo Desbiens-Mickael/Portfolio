@@ -1,8 +1,8 @@
 .navbar {
   .img-logo{
-    border-radius: 100%;
+    border-radius: 10px;
     height: 70px;
-    width: 70px;
+    width: 200px;
     margin-left: 2rem;
   }
   ul{
@@ -12,6 +12,7 @@
       }
       .nav-link{
         position: relative;
+        font-family: 'Yeseva One', cursive;
         &::before, &::after{
           content: "";
           position: absolute;

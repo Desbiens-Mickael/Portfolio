@@ -1,21 +1,5 @@
-.box-contact{
-  .me-box{
-    margin-right: 8rem;
-  }
-  .container-fluide{
-    form .form-box > div{
-      width: 100%;
-    }
-  }
-}
-
 .btn-main-contact {
-  @include reflectiveButton($light, $primary, $light);
-}
-
-.btn-ghost-contact {
-  color:  $dark;
-  transition: .5s;
+  @include reflectiveButton($light, $primary, $light, $dark);
 }
 
 @media screen and (max-width: 990px){

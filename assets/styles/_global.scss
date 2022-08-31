@@ -11,6 +11,7 @@ body{
 h1, h2, h3{
   letter-spacing: .2rem;
   font-weight: normal;
+  font-family: 'Yeseva One', cursive;
 }
 
 main{
@@ -120,10 +121,12 @@ html.is-animating.is-leaving .transition-pop{
   width: 100%;
 }
 
-@mixin reflectiveButton ($colorReflection, $backgroundColor, $textHover) {
+@mixin reflectiveButton ($colorReflection, $backgroundColor, $textHoverColor, $textStartColor) {
   position: relative;
   padding: 8px 20px;
   overflow: hidden;
+  color: $textStartColor;
+  transition: .5s;
   &::before {
     position: absolute;
     content: "";
@@ -152,7 +155,7 @@ html.is-animating.is-leaving .transition-pop{
   }
   &:hover {
     background: transparent;
-    color: $textHover !important;
+    color: $textHoverColor !important;
     &::before {
       transform: translateX(100%);
     }

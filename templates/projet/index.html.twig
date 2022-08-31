@@ -8,24 +8,25 @@
             <h2 id="projet" class="border-bottom border-light border-2 pb-3 mb-5 text-light">MES PROJETS</h2>
         </div>
 
-        <div class="container  transition-fade delay1">
-            <div class="row row-cols-1 row-cols-md-3 g-4 d-flex flex-row justify-content-center">
+        <div class="container transition-fade delay1">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 d-flex flex-row justify-content-center">
                 {% for projet in pagination %}
                     <div class="col">
                         <div class="card shadow overflow-hidden h-100">
 
                             {% if vich_uploader_asset(projet) %}
                                 <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                                     class="img-fluid">
+                                     class="mw-100 h-75">
                             {% else %}
                                 <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                                     class="img-fluid">
+                                     class="mw-100 h-75">
                             {% endif %}
 
-                            <div class="card-body">
+                            <div class="card-body h-25">
+                                <h5 class="text-center mt-0">{{ projet.name }}</h5>
                                 <a href="{{ path('projet_prez_show', {'slug': projet.slug}) }}"
                                    class="text-decoration-none text-dark stretched-link">
-                                    <h5 class="card-title text-center">{{ projet.name }}</h5></a>
+                                    </a>
                             </div>
                         </div>
                     </div>

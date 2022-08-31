@@ -18,3 +18,9 @@
     width: 50px;
   }
 }
+
+@media screen and (max-width: 990px){
+  .box-project {
+    background: linear-gradient($dark, #9198e5, $dark);;
+  }
+}

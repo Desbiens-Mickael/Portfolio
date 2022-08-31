@@ -8,11 +8,7 @@
       z-index: 2;
     }
     .btn-main {
-      @include reflectiveButton($primary, $dark, $primary);
-    }
-    .btn-ghost {
-      color:  $light;
-      transition: .5s;
+      @include reflectiveButton($primary, $dark, $primary, $light);
     }
   }
   .box-profil::before{

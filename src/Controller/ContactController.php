@@ -30,10 +30,9 @@ class ContactController extends AbstractController
             $contactRepository->add($contact, true);
 
             $objet = $form->getData()->getObjet();
-            $message = $form->getData()->getMessage();
             $email = (new Email())
-                ->from('your_email@example.com')
-                ->to('your_email@example.com')
+                ->from($this->getParameter('mailer_from'))
+                ->to($this->getParameter('mailer_to'))
                 ->subject("$objet")
                 ->html($this->renderView('contact/newContactEmail.html.twig', ['contact' => $contact]));
 

@@ -38,10 +38,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     #[ORM\Column(length: 100)]
     private ?string $lastname = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,  nullable: true)]
     private ?string $github = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255,  nullable: true)]
     private ?string $linkedin = null;
 
     #[ORM\Column(length: 255, nullable: true)]

@@ -4,38 +4,40 @@
 
 {% block body %}
     <section class="h-100 project-show pt-5 transition-pop">
-        <h1 class="text-center text-light mb-3">{{ projet.name }}</h1>
+        <h1 class="text-center text-light mb-4">{{ projet.name }}</h1>
 
-        <div class="container text-center ">
-            {% if vich_uploader_asset(projet) %}
-                <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                     class="rounded-5 w-75 shadow">
-            {% else %}
-                <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                     class="rounded-5 w-75 shadow">
-            {% endif %}
-            <p class="text-light">Date de création : {{ projet.date|date("d/m/Y") }}</p>
+        <div class="container  ">
+            <div class="row">
+                {% if vich_uploader_asset(projet) %}
+                    <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
+                         class="rounded-5 shadow col-12 col-lg-10 mx-auto ">
+                {% else %}
+                    <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
+                         class="rounded-5 shadow col-12 col-lg-10 mx-auto">
+                {% endif %}
+                <p class="col-12 col-md-10 mx-auto text-light text-center">Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
-            <div class="text-center my-5 w-75 mx-auto text-light">
-                <h2>Description</h2>
-                <p class="text-center">{{ projet.descriptif|raw }}</p>
-            </div>
+                <div class=" my-5 col-10 col-md-8 mx-auto text-light">
+                    <h2 class="text-center mb-4">Description</h2>
+                    <p>{{ projet.descriptif|raw }}</p>
+                </div>
 
-            <div class="container pb-5">
-                <h2 class="mb-4 text-light">Stack technique</h2>
-                <div class="row row-cols-3 row-cols-lg-6">
-                    {% for techno in projet.techno  %}
-                        <div class="col mx-auto">
-                            {% if vich_uploader_asset(techno) %}
-                                <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
-                                     class="img-techno">
-                            {% else %}
-                                <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
-                                     class="img-techno">
-                            {% endif %}
-                            <p class="text-light">{{ techno.name }}</p>
-                        </div>
-                    {% endfor %}
+                <div class="container pb-5 col-12 col-md-10 mx-auto">
+                    <h2 class="mb-4 text-light text-center">Stack technique</h2>
+                    <div class="row row-cols-3 row-cols-lg-6 gy-5">
+                        {% for techno in projet.techno  %}
+                            <div class="col mx-auto text-center">
+                                {% if vich_uploader_asset(techno) %}
+                                    <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                                         class="img-techno">
+                                {% else %}
+                                    <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+                                         class="img-techno">
+                                {% endif %}
+                                <p class="text-light">{{ techno.name }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
             </div>
         </div>
