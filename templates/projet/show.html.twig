@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Projet {{ projet.name }}{% endblock %}
+{% block title %} {{ parent() }} {{ projet.name }}{% endblock %}
 
 {% block body %}
     <section class="h-100 project-show pt-5 transition-pop">
