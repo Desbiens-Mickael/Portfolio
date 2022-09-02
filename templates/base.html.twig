@@ -18,6 +18,7 @@
     >
         {% include 'include/_navbar.html.twig' %}
         <main id="swup" class="">
+            <div class="background-img"></div>
             {% for category, messages in app.flashes %}
                 {% for message in messages %}
                     <div class="alert alert-{{ category }}" role="alert">
