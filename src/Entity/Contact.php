@@ -16,18 +16,44 @@ class Contact
     private ?int $id = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide')]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: "Votre prénom doit comporter au moins {{ limit }} caractères.",
+        maxMessage: "Votre prénom ne peut pas comporter plus de {{ limit }} caractères.",
+    )]
     private ?string $firstname = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide')]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: "Votre nom doit comporter au moins {{ limit }} caractères.",
+        maxMessage: "Votre nom ne peut pas comporter plus de {{ limit }} caractères.",
+    )]
     private ?string $lastname = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide')]
+    #[Assert\Email(
+        message: "L'email {{ valeur }}} n'est pas un email valide.",
+    )]
     private ?string $email = null;
 
     #[ORM\Column(length: 100)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide')]
+    #[Assert\Length(
+        min: 2,
+        max: 100,
+        minMessage: "Votre objet doit comporter au moins {{ limit }} caractères.",
+        maxMessage: "Votre objet ne peut pas comporter plus de {{ limit }} caractères.",
+    )]
     private ?string $objet = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\NotBlank(message: 'Ce champ ne doit pas être vide')]
     private ?string $message = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]

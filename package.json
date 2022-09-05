@@ -16,7 +16,7 @@
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.53.0",
         "sass-loader": "^13.0.2",
-        "swup": "^2.0.16",
+        "swup": "^2.0",
         "webpack-notifier": "^1.15.0"
     },
     "license": "UNLICENSED",

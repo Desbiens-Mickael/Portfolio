@@ -15,3 +15,26 @@ const swup = new Swup({
         }),
     ],
 });
+
+const onloadCallback = function() {
+    if(document.getElementById("g-recaptcha")) {
+        grecaptcha.render(document.getElementById("g-recaptcha"), {
+            'sitekey' : '6LeffMshAAAAAPVpPNAAFk8ARd4MlupOcDvK-gPN',
+            "theme": "dark"
+        });
+    }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    onloadCallback();
+});
+
+swup.on('contentReplaced', function () {
+    if (document.getElementById("g-recaptcha")) {
+        onloadCallback();
+    }
+});
+
+if(document.getElementById('flash')) {
+    swup.options.containers.push('#flash');
+}

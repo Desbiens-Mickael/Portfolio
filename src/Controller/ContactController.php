@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use App\Service\RecaptchaManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,33 +20,39 @@ class ContactController extends AbstractController
         Request $request,
         ContactRepository $contactRepository,
         MailerInterface $mailer,
+        RecaptchaManager $recaptchaManager
     ): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
-
+        $errors = [];
         if ($form->isSubmitted() && $form->isValid()) {
-            $contact->setDate(new \DateTime());
-            $contactRepository->add($contact, true);
+            $response = $recaptchaManager->fetchGoogleInformation($_POST['g-recaptcha-response']);
+            if ($response['success']) {
+                $contact->setDate(new \DateTime());
+                $contactRepository->add($contact, true);
 
-            $objet = $form->getData()->getObjet();
-            $email = (new Email())
-                ->from($this->getParameter('mailer_from'))
-                ->to($this->getParameter('mailer_to'))
-                ->subject("$objet")
-                ->html($this->renderView('contact/newContactEmail.html.twig', ['contact' => $contact]));
+                $objet = $form->getData()->getObjet();
+                $email = (new Email())
+                    ->from($this->getParameter('mailer_from'))
+                    ->to($this->getParameter('mailer_to'))
+                    ->subject("$objet")
+                    ->html($this->renderView('contact/newContactEmail.html.twig', ['contact' => $contact]));
 
-            $mailer->send($email);
+                $mailer->send($email);
 
-            $this->addFlash('success', 'Votre message a bien été envoyé.');
-
-            return $this->redirectToRoute('home', [], Response::HTTP_SEE_OTHER);
+                $this->addFlash('success', 'Votre message a bien été envoyé.');
+            }
+            if (!empty($response['error-codes'])) {
+                foreach ($response['error-codes'] as $error) {
+                    $errors[] = $error;
+                }
+            }
         }
-
-
         return $this->renderForm('contact/index.html.twig', [
             'form' => $form,
+            'errors' => $errors
         ]);
     }
 }

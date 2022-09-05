@@ -6,6 +6,13 @@
         <title>{% block title %}Portfolio de Mickaël Desbiens | Développeur Web Junior | {% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+{#        <script type="text/javascript">#}
+{#            const onloadCallback = function() {#}
+{#                grecaptcha.render("g-recaptcha", {#}
+{#                    'sitekey' : '6LeffMshAAAAAPVpPNAAFk8ARd4MlupOcDvK-gPN'#}
+{#                });#}
+{#            };#}
+{#        </script>#}
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -17,11 +24,11 @@
     <body class="h-100 d-flex flex-column"
     >
         {% include 'include/_navbar.html.twig' %}
-        <main id="swup" class="">
+        <main id="swup">
             <div class="background-img"></div>
             {% for category, messages in app.flashes %}
                 {% for message in messages %}
-                    <div class="alert alert-{{ category }}" role="alert">
+                    <div class="alert mt-5 w-75 mx-auto alert-{{ category }}" role="alert" id="flash">
                         {{ message }}
                     </div>
                 {% endfor %}
@@ -29,5 +36,8 @@
             {% block body %}{% endblock %}
         </main>
         {% include 'include/_footer.html.twig' %}
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                async defer>
+        </script>
     </body>
 </html>

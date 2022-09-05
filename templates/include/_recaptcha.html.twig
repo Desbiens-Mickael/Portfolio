@@ -1,0 +1,15 @@
+{% apply spaceless %}
+    <div class="col-12 p-0 form-box d-flex justify-content-center"
+         id="g-recaptcha">
+    </div>
+    <div class="col-12 p-0 form-box d-flex justify-content-center">
+        <ul class="list-unstyled">
+            {% for error in errors %}
+                <li class="bg-danger text-dark p-2 rounded-3">{{ error }}</li>
+            {% endfor %}
+        </ulclass>
+    </div>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit&hl=fr"
+            async defer>
+    </script>
+{% endapply %}

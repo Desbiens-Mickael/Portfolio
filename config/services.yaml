@@ -10,6 +10,7 @@ parameters:
     pdf_cv_dir: '%uploads_dir%/pdf_cv'
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
     mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'
+    recaptcha_site_key: '%env(RECAPTCHA_SITE_KEY)%'
 
 services:
     # default configuration for services in *this* file
@@ -28,3 +29,6 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\RecaptchaManager:
+        arguments:
+            $secretKey: '%env(RECAPTCHA_SECRET)%'

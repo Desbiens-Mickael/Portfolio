@@ -6,6 +6,7 @@ twig:
         images_projet_dir: '%images_projet_dir%'
         images_techno_dir: '%images_techno_dir%'
         pdf_cv_dir: '%pdf_cv_dir%'
+        recaptcha_site_key: '%recaptcha_site_key%'
 
 when@test:
     twig:
