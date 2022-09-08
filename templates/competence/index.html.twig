@@ -20,20 +20,20 @@
                         {% if vich_uploader_asset(techno) %}
                             <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start bg-opacity-75">
                                 <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
-                                     class="img-tech bg-opacity-100">
+                                     title="{{ techno.name }}" class="img-tech">
                             </div>
                             <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}
                                    d-flex flex-row shadow bg-opacity-75">
-                                <p class="m-0 text-light fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
+                                <p class="m-0 text-dark fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
                             </div>
                         {% else %}
                             <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start">
                                 <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
-                                     class="img-tech">
+                                     title="{{ techno.name }}" class="img-tech">
                             </div>
                             <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}
-                                        d-flex flex-row shadow">
-                                <p class="m-0 text-light fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
+                                        d-flex flex-row shadow bg-opacity-75">
+                                <p class="m-0 text-dark fw-bolder fs-5 mx-auto">{{ techno.progress }}%</p>
                             </div>
                         {% endif %}
 

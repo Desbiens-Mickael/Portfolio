@@ -2,6 +2,12 @@
   @include reflectiveButton($light, $primary, $light, $dark);
 }
 
+.error-message {
+  background: #f68585;
+  color: $danger;
+  font-weight: bolder;
+}
+
 @media screen and (max-width: 990px){
   .box-contact{
     .me-box{

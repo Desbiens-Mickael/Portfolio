@@ -4,22 +4,26 @@
     .img-profil{
       width: 200px;
       border-radius: 100%;
-      transform: rotate(5deg);
-      z-index: 2;
+      margin-top: 0.5rem;
     }
-    .btn-main {
-      @include reflectiveButton($primary, $dark, $primary, $light);
+  }
+  .btn-main {
+    @include reflectiveButton($light, $primary, $light, $dark);
+    box-shadow: 0 0 10px $dark;
+    &:hover {
+      box-shadow: 0 0 10px $light;
     }
   }
   .box-profil::before{
     content : '';
     position: absolute;
-    top: -13%;
-    width: 200px;
+    top: -14%;
+    left: -5%;
+    width: 224px;
     height: 300px;
     border-radius: 100%;
     background-color : $secondary;
-    z-index: 1;
+    z-index: -1;
     transform: rotate(-55deg);
   }
 }

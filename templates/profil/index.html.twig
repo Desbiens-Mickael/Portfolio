@@ -3,28 +3,56 @@
 {% block title %} {{ parent() }} Profil{% endblock %}
 
 {% block body %}
-    <section class="container-fluid profil-section h-100 pb-5">
+    <section class="container profil-section h-100 pb-5">
         <div class="row">
             <div class="col-12 d-flex flex-row justify-content-center mt-5 transition-fade delay3">
                 <h2 class="border-bottom border-light border-2 pb-3 mb-5 text-light">PROFIL</h2>
             </div>
 
-            <div class="col-12 col-md-6 box-profil d-flex flex-column justify-content-around align-items-center
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-around align-items-center
                         transition-fade delay1">
-                <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
-                     alt="{{ user.firstname }} {{ user.lastname }}">
-                <a class="btn-main rounded-3 my-5 text-decoration-none shadow"
-                   href="{{ path( 'download' ) }}" target="_blank">
-                    <i class="bi bi-download"></i> Mon CV</a>
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-row justify-content-center justify-content-md-start
-                        align-items-center transition-fade delay1">
-                <p class="w-75 my-auto text-light fs-5">Passionné par la réalisation et la création de site web,
+                <div class="box-profil mb-lg-0 mb-5">
+                    <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
+                         alt="{{ user.firstname }} {{ user.lastname }}">
+                </div>
+
+                <p class="text-light fs-5 bg-dark p-md-5 p-3 rounded-4 bg-opacity-75">Passionné par la réalisation et la création de site web,
                     je me suis donc lancé dans le développement.
                     Fort de mes expériences passées, je suis une personne très investie dans le travail
                     et je prends grand plaisir à l’exercer, le travail en équipe
                     et la gestion du stress font partie de mes points forts.
                 </p>
+            </div>
+            <div class="col-12 col-md-6 d-flex flex-column justify-content-around
+                        align-items-center transition-fade delay1">
+                    <a data-bs-toggle="modal" href="#cv-modal" role="button">
+                        <img class="img-fluid rounded-4" src="{{ asset('build/images/cv.jpg') }}"
+                             alt="cv {{ user.firstname }} {{ user.lastname }}">
+                    </a>
+                    <div class="modal modal-xl" id="cv-modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content bg-dark">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-light">Mon cv</h5>
+                                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <img class="img-fluid" src="{{ asset('build/images/cv_lg.jpg') }}"
+                                         alt="cv {{ user.firstname }} {{ user.lastname }}">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <a class="btn-main rounded mt-3 text-decoration-none fw-bold"
+                   href="{{ path( 'download' ) }}" target="_blank">
+                    <i class="bi bi-file-earmark-arrow-down-fill"></i> Mon CV
+                </a>
             </div>
         </div>
     </section>

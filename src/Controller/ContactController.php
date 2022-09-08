@@ -26,7 +26,7 @@ class ContactController extends AbstractController
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
-        $errors = [];
+
         if ($form->isSubmitted() && $form->isValid()) {
             $response = $recaptchaManager->fetchGoogleInformation($_POST['g-recaptcha-response']);
             if ($response['success']) {
@@ -44,15 +44,9 @@ class ContactController extends AbstractController
 
                 $this->addFlash('success', 'Votre message a bien été envoyé.');
             }
-            if (!empty($response['error-codes'])) {
-                foreach ($response['error-codes'] as $error) {
-                    $errors[] = $error;
-                }
-            }
         }
         return $this->renderForm('contact/index.html.twig', [
-            'form' => $form,
-            'errors' => $errors
+            'form' => $form
         ]);
     }
 }
