@@ -1,5 +1,4 @@
 import Swup from 'swup';
-import SwupJsPlugin from '@swup/js-plugin';
 
 const swup = new Swup({
     containers: ["#swup", "#header"],
