@@ -5,9 +5,12 @@
     filter: drop-shadow(4px 4px 0.1rem #3b3b3b);
   }
 }
+.box-progress {
 
+}
 .animation-progress-bar{
   animation: progress-bar 1.8s;
+  animation-delay: .4s;
 }
 
 @keyframes progress-bar {

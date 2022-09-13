@@ -13,10 +13,10 @@
                         transition-fade delay1">
                 <div class="box-profil mb-lg-0 mb-5">
                     <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
-                         alt="{{ user.firstname }} {{ user.lastname }}">
+                         alt="Photo de {{ user.firstname }} {{ user.lastname }}">
                 </div>
 
-                <p class="text-light fs-5 bg-dark p-md-5 p-3 rounded-4 bg-opacity-75">Passionné par la réalisation et la création de site web,
+                <p class="profil-description text-light fs-5 fw-bold p-md-5 p-3 rounded-4">Passionné par la réalisation et la création de site web,
                     je me suis donc lancé dans le développement.
                     Fort de mes expériences passées, je suis une personne très investie dans le travail
                     et je prends grand plaisir à l’exercer, le travail en équipe
@@ -25,12 +25,13 @@
             </div>
             <div class="col-12 col-md-6 d-flex flex-column justify-content-around
                         align-items-center transition-fade delay1">
-                    <a data-bs-toggle="modal" href="#cv-modal" role="button">
-                        <img class="img-fluid rounded-4" src="{{ asset('build/images/cv.jpg') }}"
-                             alt="cv {{ user.firstname }} {{ user.lastname }}">
+                    <a id="link-modal" data-bs-toggle="modal" href="#cv-modal" role="button" class="position-relative">
+                        <div id="overlay" class="rounded-4"></div>
+                        <img class="img-fluid rounded-4 cv-img" src="{{ asset('build/images/cv.jpg') }}"
+                             alt="CV de {{ user.firstname }} {{ user.lastname }}">
                     </a>
-                    <div class="modal modal-xl" id="cv-modal" tabindex="-1">
-                        <div class="modal-dialog">
+                    <div class="modal fade" id="cv-modal" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
                             <div class="modal-content bg-dark">
                                 <div class="modal-header">
                                     <h5 class="modal-title text-light">Mon cv</h5>
@@ -49,9 +50,9 @@
                             </div>
                         </div>
                     </div>
-                <a class="btn-main rounded mt-3 text-decoration-none fw-bold"
+                <a class="btn btn-main mt-3 text-decoration-none fw-bold"
                    href="{{ path( 'download' ) }}" target="_blank">
-                    <i class="bi bi-file-earmark-arrow-down-fill"></i> Mon CV
+                    <i class="bi bi-file-earmark-arrow-down-fill"></i> Télécharger mon CV
                 </a>
             </div>
         </div>

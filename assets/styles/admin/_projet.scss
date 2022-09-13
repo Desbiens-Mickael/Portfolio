@@ -1,4 +1,7 @@
-.img-techno{
-  height: 50px;
-  width: 50px;
+.tech-shadow {
+  filter: drop-shadow(5px 5px 5px #545454);
+  .img-techno{
+    height: 50px;
+    width: 50px;
+  }
 }

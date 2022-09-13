@@ -1,5 +1,5 @@
 import Swup from 'swup';
-import SwupBodyClassPlugin from '@swup/body-class-plugin';
+import SwupJsPlugin from '@swup/js-plugin';
 
 const swup = new Swup({
     containers: ["#swup", "#header"],
@@ -9,11 +9,9 @@ const swup = new Swup({
         '"]:not([data-no-swup]):not([target="_blank"]),' +
         ' a[href^="/"]:not([data-no-swup]):not([target="_blank"]),' +
         ' a[href^="#"]:not([data-no-swup]):not([target="_blank"])',
-    plugins: [
-        new SwupBodyClassPlugin({
-            prefix: '',
-        }),
-    ],
+    cache: false,
+    enabled: true,
+    fetch: "eager"
 });
 
 function verifyCallback() {
@@ -37,6 +35,7 @@ function renderWait() {
         else renderWait();
     }, 200);
 }
+
 renderWait();
 
 swup.on('contentReplaced', function () {
@@ -44,8 +43,3 @@ swup.on('contentReplaced', function () {
         onloadCallback();
     }
 });
-
-if(document.getElementById('flash')) {
-    swup.options.containers.push('#flash');
-}
-

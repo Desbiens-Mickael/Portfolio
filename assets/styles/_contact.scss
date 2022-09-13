@@ -1,7 +1,3 @@
-.btn-main-contact {
-  @include reflectiveButton($light, $primary, $light, $dark);
-}
-
 .error-message {
   background: #f68585;
   color: $danger;

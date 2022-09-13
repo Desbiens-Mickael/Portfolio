@@ -9,10 +9,14 @@
 import './styles/app.scss';
 
 import './swup'
-import './button'
+import './contact'
 
 // start the Stimulus application
 import './bootstrap';
 
 //sur la branche Bootstrap
 require('bootstrap');
+
+window.addEventListener('load', () => {
+    document.body.classList.remove('clean-transition');
+})

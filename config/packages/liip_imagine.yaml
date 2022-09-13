@@ -1,0 +1,44 @@
+# Documentation on how to configure the bundle can be found at: https://symfony.com/doc/current/bundles/LiipImagineBundle/basic-usage.html
+liip_imagine:
+    # valid drivers options include "gd" or "gmagick" or "imagick"
+    driver: "gd"
+    twig:
+        mode:
+            "lazy"
+    resolvers:
+        default:
+            web_path: ~
+    loaders:
+        default:
+            filesystem:
+                data_root:
+                - "%kernel.project_dir%/public"
+                - "%kernel.project_dir%/assets/images"
+    filter_sets:
+        cache: ~
+
+        # the name of the "filter set"
+        projet:
+
+            # adjust the image quality to 75%
+            quality: 85
+
+            # list of transformations to apply (the "filters")
+            filters:
+
+                # use and setup the "scale" filter
+                scale:
+
+                    # input 300x900px -> output 900x2700px (relative up-scale)
+                    dim: [ 300, 300 ]
+        show_projet:
+            quality: 85
+            filters:
+                scale:
+                    dim: [ 1200, 1200 ]
+
+        miniature_tech:
+            quality: 85
+            filters:
+                scale:
+                    dim: [ 50, 50 ]

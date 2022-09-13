@@ -5,7 +5,7 @@
 {% block body %}
     <section class="h-100 box-project pt-5">
         <div class="d-flex flex-row justify-content-center mb-5 transition-fade delay3">
-            <h2 id="projet" class="border-bottom border-light border-2 pb-3 mb-5 text-light">MES PROJETS</h2>
+            <h1 id="projet" class="border-bottom border-light border-2 pb-3 mb-5 text-light">MES PROJETS</h1>
         </div>
 
         <div class="container transition-fade delay1">
@@ -15,11 +15,11 @@
                         <div class="card shadow overflow-hidden h-100">
 
                             {% if vich_uploader_asset(projet) %}
-                                <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
-                                     class="mw-100 h-75">
+                                <img src="{{ vich_uploader_asset(projet)|imagine_filter('projet') }}"
+                                     alt="{{ projet.name }}" class="mw-100 h-75">
                             {% else %}
-                                <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
-                                     class="mw-100 h-75">
+                                <img src="{{ '/elephant-php.jpg'|imagine_filter('projet') }}"
+                                     alt="{{ projet.name }}" class="mw-100 h-75">
                             {% endif %}
 
                             <div class="card-body h-25">

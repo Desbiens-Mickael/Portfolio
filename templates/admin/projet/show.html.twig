@@ -7,10 +7,10 @@
     
     <div class="container mb-5 d-flex flex-column justify-content-around align-items-center">
         {% if vich_uploader_asset(projet) %}
-            <img src="{{ vich_uploader_asset(projet) }}" alt="{{ projet.name }}"
+            <img src="{{ vich_uploader_asset(projet)|imagine_filter('show_projet') }}" alt="{{ projet.name }}"
                  class="rounded-5 w-75 text-center">
         {% else %}
-            <img src="{{ asset('build/images/elepant-php.jpg') }}" alt="{{ projet.name }}"
+            <img src="{{ '/elephant-php.jpg'|imagine_filter('show_projet') }}" alt="{{ projet.name }}"
                  class="rounded-5 w-75 text-center">
         {% endif %}
         <p class="text-center">Date de création : {{ projet.date|date("d/m/Y") }}</p>
@@ -23,12 +23,12 @@
         <div class="container">
             <div class="row">
             {% for techno in projet.techno  %}
-                    <div class="col-2 mx-auto text-center">
+                    <div class="col-2 mx-auto text-center tech-shadow">
                         {% if vich_uploader_asset(techno) %}
-                            <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                            <img src="{{ vich_uploader_asset(techno) | imagine_filter('miniature_tech') }}" alt="{{ techno.name }}"
                                  class="img-techno">
                         {% else %}
-                            <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+                            <img src="{{ '/default1.png' | imagine_filter('miniature_tech') }}" alt="{{ techno.name }}"
                                  class="img-techno">
                         {% endif %}
                         <p>{{ techno.name }}</p>

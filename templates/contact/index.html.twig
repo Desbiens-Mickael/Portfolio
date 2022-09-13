@@ -14,7 +14,7 @@
 
                 {{ form_start(form, {
                     'attr':
-                    {'class': 'row col-12 col-md-6 d-flex flex-row justify-content-between gx-0
+                    {'id': 'contact-form','class': 'row col-12 col-md-6 d-flex flex-row justify-content-between gx-0
                                 transition-translate-left delay1',
                         }}) }}
 
@@ -26,7 +26,7 @@
                 <div class="col-12 p-0 form-box">{{ form_row(form.message) }}</div>
                 {% include 'include/_recaptcha.html.twig' %}
                 <div class="col-12 p-0 mt-3">
-                    <button class="btn btn-main-contact btn-ghost-contact my-2 w-100 shadow fw-bold" id="contact-btn" disabled>
+                    <button class="btn btn-main my-2 w-100 fw-bold" id="contact-btn" disabled>
                         <i class="bi bi-send-fill"></i> Envoyer</button>
                 </div>
                 {{ form_end(form) }}

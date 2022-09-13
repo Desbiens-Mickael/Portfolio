@@ -22,8 +22,17 @@
             <tr class="text-center">
                 <td>{{ techno.id }}</td>
                 <td>{{ techno.name }}</td>
-                <td>  <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
-                           class="img-techno"></td>
+                <td>
+                    {% if vich_uploader_asset(techno) %}
+                        <img src="{{ vich_uploader_asset(techno) | imagine_filter('miniature_tech') }}"
+                             alt="Logo de {{ techno.name }}"
+                             class="img-techno">
+                    {% else %}
+                        <img src="{{ 'default1.png' | imagine_filter('miniature_tech') }}"
+                             alt="Logo de {{ techno.name }}"
+                             class="img-techno">
+                    {% endif %}
+                </td>
                 <td>{{ techno.progress }}</td>
                 <td>
                     <a class="btn btn-outline-primary" href="{{ path('techno_show', {'id': techno.id}) }}">

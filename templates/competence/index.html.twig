@@ -10,16 +10,18 @@
             </div>
 
             <div class="col-12 col-md-4">
-                <img class="img-fluid rounded-5 shadow" src="{{ asset('build/images/competence.png') }}" alt="">
+                <img class="img-fluid rounded-5 shadow" src="{{ '/competence.png' | imagine_filter('show_projet') }}"
+                     alt="Un ordinateur">
             </div>
 
-            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center">
+            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center transition-pop delay2">
                 {% for techno in technologies  %}
                     <div class="d-flex flex-row justify-content-start align-items-center w-100">
 
                         {% if vich_uploader_asset(techno) %}
                             <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start bg-opacity-75">
-                                <img src="{{ vich_uploader_asset(techno) }}" alt="{{ techno.name }}"
+                                <img src="{{ vich_uploader_asset(techno) | imagine_filter('miniature_tech') }}"
+                                     alt="Logo de {{ techno.name }}"
                                      title="{{ techno.name }}" class="img-tech">
                             </div>
                             <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}
@@ -28,7 +30,8 @@
                             </div>
                         {% else %}
                             <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start">
-                                <img src="{{ asset('build/images/default1.png') }}" alt="{{ techno.name }}"
+                                <img src="{{ 'default1.png' | imagine_filter('miniature_tech') }}"
+                                     alt="Logo de {{ techno.name }}"
                                      title="{{ techno.name }}" class="img-tech">
                             </div>
                             <div class="animation-progress-bar bg-secondary mt-1 rounded-end p-1 width-{{ techno.progress }}

@@ -1,0 +1,52 @@
+@mixin reflectiveButton (
+  $colorReflection,
+  $backgroundColor,
+  $textHoverColor,
+  $textStartColor,
+  $shadowColor
+) {
+  position: relative;
+  padding: 8px 20px;
+  overflow: hidden;
+  color: $textStartColor;
+  box-shadow: 5px 5px 10px $shadowColor;
+  border: 1px;
+  transition: .5s;
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+                    120deg,
+                    transparent,
+                    $colorReflection,
+                    transparent
+    ) !important;
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+  &::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $backgroundColor !important;
+    z-index: -1;
+  }
+  &:hover {
+    background: transparent;
+    color: $textHoverColor !important;
+    &::before {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.btn-main {
+  @include reflectiveButton($light, $primary, $light, $dark, $dark);
+}
