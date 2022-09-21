@@ -3,18 +3,66 @@
 {% block title %} {{ parent() }} Compétence{% endblock %}
 
 {% block body %}
-    <section class="container-fluid h-100 box-skills mb-4 transition-pop">
-        <div class="row">
+    <section class="container-fluid h-100 box-skills mb-4">
+        <div class="row mx-md-2">
             <div class="col-12 d-flex flex-row justify-content-center mt-5 transition-fade delay5">
                 <h2 class="border-bottom border-light border-2 pb-3 mb-5 text-light">MES COMPÉTENCES</h2>
             </div>
 
-            <div class="col-12 col-md-4">
-                <img class="img-fluid rounded-5 shadow" src="{{ '/competence.png' | imagine_filter('show_projet') }}"
-                     alt="Un ordinateur">
+            <div class="col-12 col-md-5 container-fluid transition-pop bg-dark bg-opacity-50 rounded-3 mb-5 mb-md-0">
+                <div class="row gy-3">
+                    <div class="col-11 mx-auto mt-5 mt-md-5 mb-3">
+                        <p class="text-light fs-5">
+                            Elles sont en perpétuelles améliorations car pour moi la joie de ce métier fait
+                            que l’on en apprend tous les jours, d’autant plus en étant impliqué, curieux et passionné.
+                        </p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'curious.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence curieuse."
+                             class="img-soft-Skills"
+                             title="Curieux">
+                        <p class="text-light fs-5">Curieux</p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'listen.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence à l'écoute."
+                             class="img-soft-Skills"
+                             title="À l'écoute">
+                        <p class="text-light fs-5">À l'écoute</p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'logic.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence esprit logique."
+                             class="img-soft-Skills"
+                             title="Esprit logique">
+                        <p class="text-light fs-5">Esprit logique</p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'persistence.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence persévèrent."
+                             class="img-soft-Skills"
+                             title="Persévèrent">
+                        <p class="text-light fs-5">Persévèrent</p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'problem.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence résolution de problèmes."
+                             class="img-soft-Skills"
+                             title="Résolution de problèmes">
+                        <p class="text-light fs-5">Résolution de problèmes</p>
+                    </div>
+                    <div class="col-6 col-md-4 text-center">
+                        <img src="{{ 'teamwork.png' | imagine_filter('skills') }}"
+                             alt="Image de la compétence travail d'équipe."
+                             class="img-soft-Skills"
+                             title="Travail d'équipe">
+                        <p class="text-light fs-5">Travail d'équipe</p>
+                    </div>
+                </div>
             </div>
 
-            <div class="col-12 col-md-8 d-flex flex-column justify-content-around align-items-center transition-pop delay2">
+            <div class="col-12 col-md-7 d-flex flex-column justify-content-around align-items-center transition-pop delay2">
                 {% for techno in technologies  %}
                     <div class="d-flex flex-row justify-content-start align-items-center w-100">
 

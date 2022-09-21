@@ -19,18 +19,15 @@ liip_imagine:
 
         # the name of the "filter set"
         projet:
-
             # adjust the image quality to 75%
             quality: 85
-
             # list of transformations to apply (the "filters")
             filters:
-
                 # use and setup the "scale" filter
                 scale:
-
                     # input 300x900px -> output 900x2700px (relative up-scale)
                     dim: [ 300, 300 ]
+
         show_projet:
             quality: 85
             filters:
@@ -42,3 +39,9 @@ liip_imagine:
             filters:
                 scale:
                     dim: [ 50, 50 ]
+
+        skills:
+            quality: 85
+            filters:
+                scale:
+                    dim: [ 100, 100 ]
