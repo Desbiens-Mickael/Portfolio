@@ -16,3 +16,7 @@ import './bootstrap';
 
 //sur la branche Bootstrap
 require('bootstrap');
+
+window.addEventListener('load', () => {
+    document.body.classList.remove('clean-transition');
+})

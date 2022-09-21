@@ -32,6 +32,14 @@ main{
   margin-top: 6rem;
 }
 
+.clean-transition *{
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  -ms-transition: none !important;
+  transition: none !important;
+}
+
 .transition-fade, .transition-translate-right,
 .transition-translate-left, .transition-pop {
   transition: 0.6s;
