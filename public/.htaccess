@@ -5,8 +5,8 @@
   # si vous activez le dépouillement ou la mise en application de "www.", afin de garantir que
   # vous ne rebondissez pas entre http et https.
   RewriteRule ^ - [E=protossl]
-  RewriteCond %{HTTPS} on
-  RewriteRule ^ - [E=protossl:s]
+  RewriteCond %{HTTPS} off
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
 
   # Assurez-vous que l'en-tête HTTP d'autorisation est disponible pour PHP,
   # même lorsqu'il fonctionne en tant que CGI ou FastCGI.
