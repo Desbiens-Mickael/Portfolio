@@ -5,8 +5,9 @@
 {% block body %}
     <section class="h-100 project-show pt-5 transition-pop">
         <h1 class="text-center text-light mb-4">{{ projet.name }}</h1>
-        <a href="{{ path('projet_prez_index') }}" class="fs-1 text-decoration-none position-fixed ms-4">
-            <i class="bi bi-arrow-left-circle-fill"></i></a>
+        <a href="{{ path('projet_prez_index') }}" class="fs-1 text-decoration-none position-fixed ms-4 btn-back">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
         <div class="container">
             <div class="row">
                 {% if vich_uploader_asset(projet) %}

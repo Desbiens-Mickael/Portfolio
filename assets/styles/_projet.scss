@@ -15,6 +15,9 @@
 }
 
 .project-show{
+  .btn-back {
+    z-index: 1000;
+  }
   .tech-shadow {
     filter: drop-shadow(0 0 $dark);
     .img-techno{
