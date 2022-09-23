@@ -12,10 +12,10 @@
             <div class="row">
                 {% if vich_uploader_asset(projet) %}
                     <img src="{{ vich_uploader_asset(projet)|imagine_filter('show_projet') }}" alt="{{ projet.name }}"
-                         class="rounded-5 shadow col-12 col-lg-10 mx-auto ">
+                         class="rounded-5 col-12 col-lg-10 mx-auto ">
                 {% else %}
                     <img src="{{ '/elephant-php.jpg'|imagine_filter('show_projet') }}" alt="{{ projet.name }}"
-                         class="rounded-5 shadow col-12 col-lg-10 mx-auto">
+                         class="rounded-5 col-12 col-lg-10 mx-auto">
                 {% endif %}
                 <p class="col-12 col-md-10 mx-auto text-white text-center">Date de création : {{ projet.date|date("d/m/Y") }}</p>
 
@@ -27,7 +27,7 @@
                     <div class="d-flex flex-row justify-content-center">
                         {% if projet.link != "#" %}
                             <a href="{{ projet.link }}" target="_blank"
-                               class="btn btn-main mt-3 text-decoration-none fw-bold">
+                               class="btn-main mt-3 text-decoration-none fw-bold">
                                 <i class="bi bi-globe"></i> Visiter le site
                             </a>
                         {% else %}

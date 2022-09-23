@@ -11,7 +11,7 @@
 
             <div class="col-12 col-md-6 d-flex flex-column justify-content-around align-items-center
                         bg-dark bg-opacity-50 rounded-4 transition-fade delay1">
-                <div class="box-profil mb-lg-0 mb-5">
+                <div class="box-profil mb-lg-0 mb-5 mt-5">
                     <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
                          alt="Photo de {{ user.firstname }} {{ user.lastname }}">
                 </div>
@@ -25,7 +25,7 @@
                 </p>
             </div>
             <div class="col-12 col-md-6 d-flex flex-column justify-content-around
-                        align-items-center transition-fade delay1">
+                        align-items-center mt-5 mt-md-0 transition-fade delay1">
                     <a id="link-modal" data-bs-toggle="modal" href="#cv-modal" role="button" class="position-relative">
                         <div id="overlay" class="rounded-4"></div>
                         <img class="img-fluid rounded-4 cv-img" src="{{ asset('build/images/cv.jpg') }}"
@@ -36,7 +36,7 @@
                             <div class="modal-content bg-dark">
                                 <div class="modal-header">
                                     <h5 class="modal-title text-light">Mon cv</h5>
-                                    <button type="button" class="btn-close bg-light" data-bs-dismiss="modal"
+                                    <button type="button" class="btn-close bg-primary" data-bs-dismiss="modal"
                                             aria-label="Close">
                                     </button>
                                 </div>
@@ -45,13 +45,13 @@
                                          alt="cv {{ user.firstname }} {{ user.lastname }}">
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fermer
                                     </button>
                                 </div>
                             </div>
                         </div>
                     </div>
-                <a class="btn btn-main mt-3 text-decoration-none fw-bold"
+                <a class=" btn-main mt-3 text-decoration-none fw-bold"
                    href="{{ path( 'download' ) }}" target="_blank">
                     <i class="bi bi-file-earmark-arrow-down-fill"></i> Télécharger mon CV
                 </a>
