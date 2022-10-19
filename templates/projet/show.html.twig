@@ -3,7 +3,7 @@
 {% block title %} {{ parent() }} {{ projet.name }}{% endblock %}
 
 {% block body %}
-    <section class="h-100 project-show pt-5 transition-pop">
+    <div class="h-100 project-show pt-5 transition-pop">
         <h1 class="text-center text-white mb-4">{{ projet.name }}</h1>
         <a href="{{ path('projet_prez_index') }}" class="fs-1 text-decoration-none position-fixed ms-4 btn-back">
             <i class="bi bi-arrow-left-circle-fill"></i>
@@ -58,5 +58,5 @@
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 {% endblock %}

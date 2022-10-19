@@ -3,13 +3,13 @@
 {% block title %} {{ parent() }} Profil{% endblock %}
 
 {% block body %}
-    <section class="container profil-section h-100 pb-5">
+    <div class="container profil-section h-100 pb-5">
         <div class="row">
             <div class="col-12 d-flex flex-row justify-content-center mt-5 transition-fade delay3">
                 <h2 class="border-bottom border-light border-2 pb-3 mb-5 text-white">PROFIL</h2>
             </div>
 
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-around align-items-center
+            <section class="col-12 col-md-6 d-flex flex-column justify-content-around align-items-center
                         bg-dark bg-opacity-50 rounded-4 transition-fade delay1">
                 <div class="box-profil mb-lg-0 mb-5 mt-5">
                     <img class="img-profil " src="{{ asset('build/images/Profil.png') }}"
@@ -23,8 +23,8 @@
                     et je prends grand plaisir à l’exercer, le travail en équipe
                     et la gestion du stress font partie de mes points forts.
                 </p>
-            </div>
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-around
+            </section>
+            <section class="col-12 col-md-6 d-flex flex-column justify-content-around
                         align-items-center mt-5 mt-md-0 transition-fade delay1">
                     <a id="link-modal" data-bs-toggle="modal" href="#cv-modal" role="button" class="position-relative">
                         <div id="overlay" class="rounded-4"></div>
@@ -55,7 +55,7 @@
                    href="{{ path( 'download' ) }}" target="_blank">
                     <i class="bi bi-file-earmark-arrow-down-fill"></i> Télécharger mon CV
                 </a>
-            </div>
+            </section>
         </div>
-    </section>
+    </div>
 {% endblock %}

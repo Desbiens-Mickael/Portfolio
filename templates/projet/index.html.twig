@@ -3,7 +3,7 @@
 {% block title %} {{ parent() }} Projet{% endblock %}
 
 {% block body %}
-    <section class="h-100 box-project pt-5">
+    <div class="h-100 box-project pt-5">
         <div class="d-flex flex-row justify-content-center mb-5 transition-fade delay3">
             <h1 id="projet" class="border-bottom border-light border-2 pb-3 mb-5 text-white">MES PROJETS</h1>
         </div>
@@ -36,5 +36,5 @@
                 {{ knp_pagination_render(pagination) }}
             </div>
         </div>
-    </section>
+    </div>
 {% endblock %}
