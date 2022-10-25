@@ -8,6 +8,7 @@ parameters:
     images_projet_dir: '%uploads_dir%/images_projet'
     images_techno_dir: '%uploads_dir%/images_techno'
     pdf_cv_dir: '%uploads_dir%/pdf_cv'
+    images_cv_dir: '%uploads_dir%/image_cv'
     mailer_from: '%env(resolve:MAILER_FROM_ADDRESS)%'
     mailer_to: '%env(resolve:MAILER_TO_ADDRESS)%'
     recaptcha_site_key: '%env(RECAPTCHA_SITE_KEY)%'

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use App\Repository\UserRepository;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
@@ -17,7 +18,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column()]
+    #[ORM\Column]
     private ?int $id = null;
 
     #[ORM\Column(length: 180, unique: true)]
@@ -54,8 +55,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
     )]
     private ?File $cvFile = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $imageCv = null;
+
+    #[Vich\UploadableField(mapping: 'image_cv', fileNameProperty: 'imageCv')]
+    #[Assert\File(
+        maxSize: '3M',
+        mimeTypes: ['image/jpeg', 'image/png', 'image/webp'],
+    )]
+    private ?File $imageCvFile = null;
+
+
     #[ORM\Column(type: 'datetime',  nullable: true)]
-    private ?\DateTimeInterface $updatedAt = null;
+    private ?DateTimeInterface $updatedAt = null;
 
     public function getId(): ?int
     {
@@ -187,12 +199,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
         return $this;
     }
 
-    public function getUpdatedAt(): ?\DateTimeInterface
+    public function getUpdatedAt(): ?DateTimeInterface
     {
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    public function setUpdatedAt(DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
 
@@ -228,5 +240,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, \Serial
             $this->email,
             $this->password,
             ) = unserialize($serialized);
+    }
+
+    public function getImageCv(): ?string
+    {
+        return $this->imageCv;
+    }
+
+    public function setImageCv(?string $imageCv): self
+    {
+        $this->imageCv = $imageCv;
+
+        return $this;
+    }
+
+    public function setImageCvFile(File $image = null): void
+    {
+        $this->imageCvFile = $image;
+        if ($image) {
+            $this->updatedAt = new DateTime('now');
+        }
+    }
+
+    public function getImageCvFile(): ?File
+    {
+        return $this->imageCvFile;
     }
 }

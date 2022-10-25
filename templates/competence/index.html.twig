@@ -68,7 +68,7 @@
 
                         {% if vich_uploader_asset(techno) %}
                             <div class="bg-secondary mt-1 p-1 d-flex flex-row rounded-start bg-opacity-75">
-                                <img src="{{ vich_uploader_asset(techno) | imagine_filter('miniature_tech') }}"
+                                <img src="{{ vich_uploader_asset(techno) }}"
                                      alt="Logo de {{ techno.name }}"
                                      title="{{ techno.name }}" class="img-tech">
                             </div>

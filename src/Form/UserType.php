@@ -26,6 +26,11 @@ class UserType extends AbstractType
                 'allow_delete'  => true, //non obligatoire, la valeur par défaut est true
                 'download_uri' => false, // non obligatoire, la valeur par défaut est true
             ])
+            ->add('imageCvFile', VichFileType::class, [
+                'required'      => false,
+                'allow_delete'  => true, //non obligatoire, la valeur par défaut est true
+                'download_uri' => false, // non obligatoire, la valeur par défaut est true
+            ])
         ;
     }
 

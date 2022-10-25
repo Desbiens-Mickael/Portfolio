@@ -13,7 +13,7 @@ class AdminController extends AbstractController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-        $paths = ['images_projet_dir', 'images_techno_dir', 'pdf_cv_dir'];
+        $paths = ['images_projet_dir', 'images_techno_dir', 'pdf_cv_dir', 'images_cv_dir'];
         foreach ($paths as $path) {
             $path_dir = $this->getParameter($path);
             if (!file_exists("../public/$path_dir")){

@@ -28,7 +28,7 @@
                         align-items-center mt-5 mt-md-0 transition-fade delay1">
                     <a id="link-modal" data-bs-toggle="modal" href="#cv-modal" role="button" class="position-relative">
                         <div id="overlay" class="rounded-4"></div>
-                        <img class="img-fluid rounded-4 cv-img" src="{{ asset('build/images/cv.jpg') }}"
+                        <img src="{{ vich_uploader_asset(user, 'imageCvFile') | imagine_filter('image_cv') }}" class="img-fluid rounded-4 cv-img"
                              alt="CV de {{ user.firstname }} {{ user.lastname }}">
                     </a>
                     <div class="modal fade" id="cv-modal" tabindex="-1">
@@ -41,7 +41,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <img class="img-fluid" src="{{ asset('build/images/cv_lg.jpg') }}"
+                                    <img class="img-fluid" src="{{ vich_uploader_asset(user, 'imageCvFile') }}"
                                          alt="cv {{ user.firstname }} {{ user.lastname }}">
                                 </div>
                                 <div class="modal-footer">
